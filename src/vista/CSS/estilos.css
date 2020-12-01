@@ -1,0 +1,93 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-image: url('/IMG/fondoingreso.jpg');
+    background-size: cover;
+}
+
+.tarjeta-formulario {
+    background: white;
+    padding: 30px;
+    margin: auto;
+    border-radius: 7px;
+    font-family: 'arial';
+    color: #24303c;
+    box-shadow: 7px 13px 30px #000;
+}
+
+#tarjeta-ingreso {
+    width: 380px;
+    margin-top: 140px;    
+}
+
+#tarjeta-registro {
+    width: 400px;
+    margin-top: 85px;
+}
+
+.tarjeta-formulario h4 {
+    font-size: 25px;
+    margin-bottom: 20px;
+}
+
+.caja-texto {
+    width: 100%;
+    background-color: white;
+    padding: 10px;
+    border-radius: 4px;
+    margin: 8px 0;
+    border: 1px solid #3E63A9;
+    font-family: 'arial';
+    font-size: 18px;
+    color: #24303c;
+}
+
+.texto {
+    margin-top: 10px;
+    margin-bottom: 20px;
+    height: 0px;
+    text-align: center;
+    font-size: 15px;
+    line-height: 30px;
+}
+
+.tarjeta-formulario a {
+    color: #24303c;
+    text-decoration: none;
+    text-align: center;
+}
+
+.tarjeta-formulario a:hover {
+    color: #3E63A9;
+    text-decoration: underline;
+}
+
+.boton {
+    width: 100%;
+    background: #3E63A9;
+    border: none;
+    border-radius: 20px;
+    padding: 12px;
+    color: white;
+    margin: 8px 0;
+    font-size: 16px;
+}
+
+#boton-iniciosesion {
+    margin-top: 25px;
+}
+
+#boton-registro-ingreso {   /* Botón de registro de la vista ingreso.html */
+    background: white;
+    color: #3E63A9;
+    border-radius: 20px;
+    border: 1px solid #3E63A9;
+}
+
+#boton-registro-registro {   /* Botón de registro de la vista registro.html */
+    margin-top: 25px;    
+}
