@@ -4,11 +4,6 @@
     box-sizing: border-box;
 }
 
-body {
-    background-image: url('/static/img/fondoingreso.jpg');
-    background-size: cover;
-}
-
 .tarjeta-formulario {
     background: white;
     padding: 30px;
@@ -19,33 +14,24 @@ body {
     box-shadow: 7px 13px 30px #000;
 }
 
-#tarjeta-ingreso {
-    width: 380px;
-    margin-top: 140px;    
-}
-
-#tarjeta-registro {
-    width: 400px;
-    margin-top: 85px;
-}
-
+/* Títulos de las tarjetas */
 .tarjeta-formulario h4 {
     font-size: 25px;
     margin-bottom: 20px;
 }
 
+/* Texto dentro de las cajas */
 .caja-texto {
     width: 100%;
     background-color: white;
     padding: 10px;
     border-radius: 4px;
     margin: 8px 0;
-    border: 1px solid #3E63A9;
-    font-family: 'arial';
+    border: 1px solid #24303c;
     font-size: 18px;
-    color: #24303c;
 }
 
+/* Texto suelto */
 .texto {
     margin-top: 10px;
     margin-bottom: 20px;
@@ -55,20 +41,22 @@ body {
     line-height: 30px;
 }
 
+/* Links */
 .tarjeta-formulario a {
     color: #24303c;
     text-decoration: none;
     text-align: center;
 }
 
+/* Links cuando se posiciona el ratón sobre ellos */
 .tarjeta-formulario a:hover {
     color: #3E63A9;
     text-decoration: underline;
 }
 
+/* Todos los botones */
 .boton {
     width: 100%;
-    background: #3E63A9;
     border: none;
     border-radius: 20px;
     padding: 12px;
@@ -77,17 +65,84 @@ body {
     font-size: 16px;
 }
 
+/* Vista Ingreso ******************************************************************* */
+#body-ingreso {
+    background-image: url('/static/img/fondoIngreso.jpg');
+    background-size: cover;
+}
+
+#tarjeta-ingreso {
+    width: 380px;
+    margin-top: 130px;
+}
+
 #boton-iniciosesion {
     margin-top: 25px;
+    background: #666745;
 }
 
 #boton-registro-ingreso {   /* Botón de registro de la vista ingreso.html */
     background: white;
-    color: #3E63A9;
+    color: #666745;
     border-radius: 20px;
-    border: 1px solid #3E63A9;
+    border: 1px solid #666745;
+}
+
+/* Vista Registro ******************************************************************** */
+#body-registro {
+    background-image: url('/static/img/fondoRegistro.jpg');
+    background-size: cover;
+}
+
+#tarjeta-registro {
+    width: 400px;
+    margin-top: 85px;
 }
 
 #boton-registro-registro {   /* Botón de registro de la vista registro.html */
+    background: #3E63A9;
     margin-top: 25px;    
+}
+
+/* Vista OlvidaPass ******************************************************************* */
+#body-olvidaPass {
+    background-image: url('/static/img/fondoOlvidaPass.jpg');
+    background-size: cover;
+}
+
+#boton-olvidaPass {
+    margin-top: 15px;
+    background: #202020;
+}
+
+/* Vista termsCond ********************************************************************* */
+#body-termsCond{
+    background-image: url('/static/img/fondoTermsCond.jpg');
+    background-size: contain;
+}
+
+#tarjeta-terms {
+    width: 900px;
+    margin-top: 140px;
+    margin-bottom: 140px;
+    background: #24303c;
+    color: white;
+}
+
+#titulo-terms {
+    font-size: 36px;
+    margin: 30px;
+    margin-bottom: 60px;
+}
+
+#subtitulo-terms {
+    font-size: 25px;
+    margin: 30px;
+}
+
+#terms {
+    font-size: 18px;
+    margin: 30px;
+    text-align: justify;
+    height: auto;
 }
