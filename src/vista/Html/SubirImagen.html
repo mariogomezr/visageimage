@@ -4,35 +4,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" type="text/css" href="C:\Users\ersie\OneDrive\Escritorio\mision tics\paginas web\proyecto grupal\visageimage\src\vista\CSS\edwstilos.css">
-
+    <link rel="stylesheet" type="text/css" href="../CSS/edwstilos.css">
+  
 
 </head>
-<body background="C:\Users\ersie\OneDrive\Escritorio\mision tics\paginas web\proyecto grupal\visageimage\static\img\Subir_imagen.png">
-    <section class="tarjeta-formulario" id="tarjeta-ingreso">
+<body>
+    <section id="tarjeta-ingreso">
         <br>
-        <br>
-        <br>
-        <h1>    Nueva imagen</h1>
-        <h3>    Asigna un nombre</h3>
+        <h1 class="titulos">Nueva imagen</h1>
+        <h3 class="titulos">Asigna un nombre</h3>
         <input class="caja-texto" type="text" name="nombreImagen" id="nombreImagen" placeholder="Elige un nombre para tu imagen*">
         <br>
-        <h3>    Asigna una etiqueta*</h3>
+        <h3 class="titulos">    Asigna una etiqueta*</h3>
         <input class="caja-texto" type="text" name="etiqueta" id="etiqueta" placeholder="Elige una etiqueta para tu imagen*">
         <br>
         <br>
-        <textarea type=file  name="textarea" rows="10" cols="50" name="imagenASubir" id="imagenASubir" placeholder="Elegir un archivo o arrastralo hasta aqui. Puede subir un archivo JPGE, GIF, PNG. Tamaño máximo 10Mb y 1600 -1200 pixels"></textarea>
-
+        <div class="image-upload">
+                <label for="file-input">
+                  <img src="../../../../visageimage/static/img/subir_nube.png" width="500" height="300" style="cursor:pointer"/>
+                </label>          
+                <input id="file-input" type="file" />
+        </div>
         <br>
-        <input class="boton" id="Cancelar" type="button" value="Cancelar" class="escandal">
-        <input class="boton" id="Guardar" type="submit" value="Guardar" class="escandal">
-        <br>
-        <br>
-        <label class="filebutton">
-            Browse For File!
-            <span><input type="file" id="myfile" name="myfile"></span>
-        </label>
-        
+        <input id="Cancelar" type="button" value="Cancelar" class="escandal">
+        <input id="Guardar" type="submit" value="Guardar" class="escandal">        
     </section>
 </body>
 </html>

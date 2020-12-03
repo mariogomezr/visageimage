@@ -1,4 +1,15 @@
 .escandal{
-    background-color: lime;
-    color: rgb(139, 0, 0); 
+    background-color:#565a5e;
+    color: rgb(255, 255, 255); 
+}
+.titulos{
+    color: rgb(79, 82, 79);
+}
+
+.image-upload>input {
+    display: none;
+  }
+body{padding-left: 50px;
+    background-image: url("../../../static/img/Subir_imagen.png");
+    background-size: 100% 100%;
 }
