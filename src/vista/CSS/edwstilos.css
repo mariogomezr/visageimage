@@ -9,7 +9,7 @@
 .image-upload>input {
     display: none;
   }
-body{padding-left: 50px;
+body{padding-left: 250px;
     background-image: url("../../../static/img/Subir_imagen.png");
     background-size: 100% 100%;
 }
