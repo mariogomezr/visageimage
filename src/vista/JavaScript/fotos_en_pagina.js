@@ -16,3 +16,4 @@ document.getElementById("file").onchange = function(e) {
       preview.append(image);
     };
   }
+  
