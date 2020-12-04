@@ -1,0 +1,46 @@
+
+.barra-header{
+    display: flex;
+    justify-content: space-between;
+    padding-top: 30px;
+    max-width: 1400px;
+    margin: 0 auto 0 auto;
+
+}
+
+.contenedor-buscarima{
+    display: flex;
+    max-width: 1400px;
+    margin: 10vh auto 0 auto;
+
+}
+
+.contenedorprincipal{
+    background-image: url(/static/img/fondoTermsCond.jpg);
+    background-position: center center;
+    background-size: cover;
+    height: 70vh;
+    min-height: 500px;
+}
+
+.navegacion a {
+    color: #FFEFBA;  /* fallback for old browsers */
+    color: -webkit-linear-gradient(to right, #FFFFFF, #FFEFBA);  /* Chrome 10-25, Safari 5.1-6 */
+    color: linear-gradient(to right, #FFFFFF, #FFEFBA); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    font-size: 28px;
+    text-decoration: none;
+    margin-right: 20px;
+}
+.navegacion a:hover{
+    color: white ;
+}
+
+.column {
+    flex: 50%;
+    padding: 0 4px;
+  }
+
+  .column img {
+    margin-top: 8px;
+    vertical-align: middle;
+  }
