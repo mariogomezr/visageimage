@@ -1,0 +1,93 @@
+*{
+    font-family: sans-serif;
+}
+
+h1,h2{
+    font-size: 20px;
+    font-weight: bold;
+}
+
+h3{
+    text-decoration: none;
+    color: black;
+    font-size: 20px;
+    font-weight: lighter;
+}
+
+header{
+    border: 0;
+    border-radius: 1px;
+    padding: .625rem 0;
+    margin-bottom: 0px;
+    color: #555;
+    background-color: #fff!important;
+    box-shadow: 0 4px 18px 0 rgba(0,0,0,.12), 0 7px 10px -5px rgba(0,0,0,.15) !important;
+    z-index: 1000 !important;
+    transition: all 150ms ease 0s
+}
+
+nav{
+    text-align: right;
+    margin-right: 50px;
+}
+
+.redicc li {
+    list-style: none;
+    display: inline-block;
+    margin-left: 10px;
+    color: black;
+}
+
+.fotoPerfil {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.fotoPerfil img{
+    width: 200;
+    height: 200px;
+    border-radius: 100%;
+}
+
+.Nombre h2 {
+    text-align: center;
+}
+
+.opciones ul {
+    padding: 0;
+    margin: 0;
+    display: inline-flex;
+    list-style: none;
+    
+}
+
+.opciones {
+    border: 0;
+    border-radius: 1px; 
+    margin-bottom: 0px;
+    color: rgb(0, 0, 0);
+    background-color: rgb(197, 197, 197)!important;
+    box-shadow: 0 4px 18px 0 rgba(0,0,0,.12), 0 7px 10px -5px rgba(0,0,0,.15) !important;
+    z-index: 1000 !important;
+    transition: all 150ms ease 0s
+}
+
+.opciones ul li{
+    width: 120px;
+    margin: 15px;
+    padding: 15px;
+    position: relative;
+    
+}
+
+.opciones ul li a{
+    text-decoration: none;
+    color: black;
+}
+
+.active, .opciones ul li {
+    background: rgb(138, 136, 136);
+    border-radius: 3px;
+}
