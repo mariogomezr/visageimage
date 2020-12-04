@@ -1,0 +1,49 @@
+body{
+    background-image: url('../../../static/img/fondoVerImagen.png');
+    background-attachment: fixed;
+}
+.imagenSeleccionada{
+    border: 5px solid whitesmoke; 
+    border-radius: 60px; 
+    position: absolute; 
+    top: 85px; 
+    right: 350px; 
+    width: 400px; 
+    height: 500px
+}
+h1{
+    position: absolute;
+    left: 120px;
+    top: 250px;
+    font-family: "Lucida Handwriting";
+}
+h2{
+    position: absolute;
+    left: 120px;
+    top: 320px;
+    font-family: "Garamond";
+}
+#iconoDescargar{
+    position: absolute;
+    right: 180px;
+    top: 100px;    
+}
+#iconoUsuario{
+    position: absolute;
+    left: 220px;
+    top: 50px;    
+}
+h3{
+    position: absolute;
+    left: 260px;
+    top: 30px;
+    font-family: "Garamond";
+    font-size: 17px;
+}
+h4{
+    position: absolute;
+    left: 260px;
+    top: 40px;
+    font-family: "Garamond";
+    font-size: 17px;
+}
