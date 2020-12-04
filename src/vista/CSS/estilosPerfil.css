@@ -1,7 +1,7 @@
 *{
     font-family: sans-serif;
 }
-
+/* ------------------------------- letras---------------------------------------------------------------- */
 h1,h2{
     font-size: 20px;
     font-weight: bold;
@@ -13,7 +13,7 @@ h3{
     font-size: 20px;
     font-weight: lighter;
 }
-
+/* ------------------------------- recuadro encabezado --------------------------------------------------- */
 header{
     border: 0;
     border-radius: 1px;
@@ -25,7 +25,7 @@ header{
     z-index: 1000 !important;
     transition: all 150ms ease 0s
 }
-
+/* ------------------------ botones redirecciones encabezado---------------------------------------------- */
 nav{
     text-align: right;
     margin-right: 50px;
@@ -37,7 +37,7 @@ nav{
     margin-left: 10px;
     color: black;
 }
-
+/* ------------------------------- letras---------------------------------------------------------------- */
 .fotoPerfil {
     position: relative;
     display: flex;
@@ -87,7 +87,46 @@ nav{
     color: black;
 }
 
-.active, .opciones ul li {
+.active, .opciones ul li:hover{
     background: rgb(138, 136, 136);
     border-radius: 3px;
 }
+/* sub menu ------------configuracion mygalery----------------------------------------------------------- */
+.submenu-1{
+    display: none;
+}
+.opciones ul li:hover .submenu-1{
+    display: block;
+    position: absolute;
+    background-color: #555;
+    margin-top: 15px;
+    margin-left: -15px;
+}
+
+.opciones ul li:hover .submenu-1 ul{
+    display: block;
+}
+
+.opciones .fa{
+    margin-right: 8px;
+}
+
+.submenu-2{
+    display: none;
+}
+.opciones ul li:hover .submenu-2{
+    display: block;
+    position: absolute;
+    background-color: #555;
+    margin-top: 15px;
+    margin-left: -15px;
+}
+
+.opciones ul li:hover .submenu-2 ul{
+    display: block;
+}
+
+.opciones .fa{
+    margin-right: 8px;
+}
+/* -------- ---------------------------------------------------------------------------------------------- */
