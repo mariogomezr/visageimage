@@ -2,7 +2,7 @@
 .barra-header{
     display: flex;
     justify-content: space-between;
-    padding-top: 30px;
+    padding-top: 10px;
     max-width: 1400px;
     margin: 0 auto 0 auto;
 
@@ -13,23 +13,24 @@
     max-width: 1400px;
     margin: 10vh auto 0 auto;
 
+
 }
 
-.contenedorprincipal{
-    background-image: url(/static/img/fondoTermsCond.jpg);
+.header{
+    background-color: #FFFFFF;
     background-position: center center;
     background-size: cover;
-    height: 70vh;
-    min-height: 500px;
+    height: 10vh;
 }
 
 .navegacion a {
-    color: #FFEFBA;  /* fallback for old browsers */
+    color: black;  /* fallback for old browsers */
     color: -webkit-linear-gradient(to right, #FFFFFF, #FFEFBA);  /* Chrome 10-25, Safari 5.1-6 */
     color: linear-gradient(to right, #FFFFFF, #FFEFBA); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     font-size: 28px;
     text-decoration: none;
     margin-right: 20px;
+    padding-top: 30px;
 }
 .navegacion a:hover{
     color: white ;
