@@ -3,25 +3,32 @@ body{
     background-attachment: fixed;
 }
 .imagenSeleccionada{
-    border: 5px solid whitesmoke; 
-    border-radius: 60px; 
     position: absolute; 
     top: 85px; 
     right: 350px; 
+}
+.imagenModificar{
+    border: 5px solid whitesmoke; 
+    border-radius: 60px; 
     width: 400px; 
-    height: 500px
+    height: 500px;
 }
 h1{
     position: absolute;
     left: 120px;
     top: 250px;
-    font-family: "Lucida Handwriting";
+    font-family: 'arial';
+    font-style: italic;
+    font-size: 40px;
+    /*font-family: "Lucida Handwriting";*/
 }
 h2{
     position: absolute;
     left: 120px;
     top: 320px;
-    font-family: "Garamond";
+    font-family: 'arial';
+    font-size: 25px;
+    /*font-family: "Garamond";*/
 }
 #iconoDescargar{
     position: absolute;
@@ -37,13 +44,15 @@ h3{
     position: absolute;
     left: 260px;
     top: 30px;
-    font-family: "Garamond";
+    /*font-family: "Garamond";*/
+    font-family: 'arial';
     font-size: 17px;
 }
 h4{
     position: absolute;
     left: 260px;
     top: 40px;
-    font-family: "Garamond";
+    /*font-family: "Garamond";*/
+    font-family: 'arial';
     font-size: 17px;
 }
