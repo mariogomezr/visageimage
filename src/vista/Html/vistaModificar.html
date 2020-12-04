@@ -1,22 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
-    <link rel="stylesheet" href='../CSS/bootstrap.css'>
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    
+    <title>Document</title> 
+    <link rel="stylesheet" href='../CSS/bootstrap.css'>
+    <link rel="stylesheet" type="text/css" href="../CSS/estiloVerImagen.css"/>   
 </head>
 <body>
-    <div style="width: 65%; margin-left: 20%; margin-top: 5%;">
+    <div style="width: 65%; margin-left: 27%; margin-top: 3%;">
         <table>
             <tr>
-                <td><img src='../../../static/img/paisaje.jpg' height="400" width="500"></td>
+                <td><img class="imagenModificar" src='../../../static/img/paisaje.jpg'></td>
                 <td>
                     <input type="text" placeholder="Nombre imagen" style='height: 30px; width: 300px; margin-top: 15px; border-radius: 3px;'>
                     <br>
                     <input type="text" placeholder="Etiqueta imagen" style='height: 30px; width: 300px; margin-top: 15px; border-radius: 3px;'>
+                    <br>
+                    <br>
+                    <label for="campoRadioPublica"> Pública </label>
+                    <input type="radio" name="RadioPrivada" id="campoRadioPublica" value="Publica" />
+                    <label for="campoRadioPrivada">Privada</label>
+                    <input type="radio" name="RadioPrivada" id="campoRadioPrivada" value="Privada" />
                 </td>
             </tr>
             <tr>
