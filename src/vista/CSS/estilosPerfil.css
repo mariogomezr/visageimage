@@ -1,5 +1,5 @@
 *{
-    font-family: sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
 }
 /* ------------------------------- letras---------------------------------------------------------------- */
 h1,h2{
@@ -16,30 +16,57 @@ h3{
 /* ------------------------------- recuadro encabezado --------------------------------------------------- */
 header{
     border: 0;
-    border-radius: 1px;
+    border-radius: 3px;
     padding: .625rem 0;
     margin-bottom: 0px;
-    color: #555;
-    background-color: #fff!important;
-    box-shadow: 0 4px 18px 0 rgba(0,0,0,.12), 0 7px 10px -5px rgba(0,0,0,.15) !important;
+    height: 90px;
+    width: 1250px;
+    color: rgb(71, 70, 70);
+    background-color: rgba(255, 255, 255, 0.959)!important;
+    box-shadow: 0 4px 18px 0 rgba(0, 0, 0, 0.658), 0 7px 10px -5px rgba(91, 107, 250, 0.829) !important;
     z-index: 1000 !important;
-    transition: all 150ms ease 0s
+    transition: all 150ms ease 0s;
 }
-/* ------------------------ botones redirecciones encabezado---------------------------------------------- */
-nav{
-    text-align: right;
-    margin-right: 50px;
+header img{
+    height: fit-content;
+    margin-top: 16px;
 }
+.header{
+    display: flex;
+    justify-content: space-between;
+}
+/* ------------------------ botones recuadro encabezado   --------------------------------------------- */
 
 .redicc li {
     list-style: none;
     display: inline-block;
-    margin-left: 10px;
+    color: black;
+    font-size: 17.5px;
+}
+/* ----------------------------- recuadro botones -----------------------------------------------------*/
+
+.header ul li{
+    width: 120px;
+    margin: 15px;
+    padding: 15px;
+    position: relative;
+    right: 30px;
+    bottom: 10px; 
+}
+
+.header ul li a{
+    text-decoration: none;
     color: black;
 }
-/* ------------------------------- letras---------------------------------------------------------------- */
+
+.active2, .header ul li:hover{
+    background: rgb(163, 162, 162);
+    border-radius: 3px;
+}
+/* ------------------------------- foto perfil----------------------------------------------------------- */
 .fotoPerfil {
     position: relative;
+    height: 250px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -50,11 +77,11 @@ nav{
     height: 200px;
     border-radius: 100%;
 }
-
+/* ----------------------------------- nombre perfil ---------------------------------------------------*/
 .Nombre h2 {
     text-align: center;
 }
-
+/* ------------------------------------- segundo contenedor -------------------------------------------- */
 .opciones ul {
     padding: 0;
     margin: 0;
@@ -65,11 +92,11 @@ nav{
 
 .opciones {
     border: 0;
-    border-radius: 1px; 
+    border-radius: 3px; 
     margin-bottom: 0px;
     color: rgb(0, 0, 0);
     background-color: rgb(197, 197, 197)!important;
-    box-shadow: 0 4px 18px 0 rgba(0,0,0,.12), 0 7px 10px -5px rgba(0,0,0,.15) !important;
+    box-shadow: 0 4px 18px 0 rgba(0, 0, 0, 0.658), 0 7px 10px -5px rgba(91, 107, 250, 0.829) !important;
     z-index: 1000 !important;
     transition: all 150ms ease 0s
 }
@@ -78,8 +105,7 @@ nav{
     width: 120px;
     margin: 15px;
     padding: 15px;
-    position: relative;
-    
+    position: relative; 
 }
 
 .opciones ul li a{
@@ -129,4 +155,14 @@ nav{
 .opciones .fa{
     margin-right: 8px;
 }
-/* -------- ---------------------------------------------------------------------------------------------- */
+/* -------- ------------------------contendor imagenes -------------------------------------------------- */
+.contenedor-imagenes {
+    border: 0;
+    border-radius: 3px; 
+    margin-bottom: 0px;
+    color: rgb(0, 0, 0);
+    background-color: rgb(197, 197, 197)!important;
+    box-shadow: 0 4px 18px 0 rgba(0, 0, 0, 0.658), 0 7px 10px -5px rgba(91, 107, 250, 0.829) !important;
+    z-index: 1000 !important;
+    transition: all 150ms ease 0s
+}
