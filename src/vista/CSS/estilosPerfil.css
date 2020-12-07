@@ -56,7 +56,7 @@ header img{
 
 .header ul li a{
     text-decoration: none;
-    color: black;
+    color: rgb(255, 255, 255);
 }
 
 .active2, .header ul li:hover{
@@ -94,7 +94,7 @@ header img{
     border: 0;
     border-radius: 3px; 
     margin-bottom: 0px;
-    color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
     background-color: rgb(197, 197, 197)!important;
     box-shadow: 0 4px 18px 0 rgba(0, 0, 0, 0.658), 0 7px 10px -5px rgba(91, 107, 250, 0.829) !important;
     z-index: 1000 !important;
@@ -110,7 +110,7 @@ header img{
 
 .opciones ul li a{
     text-decoration: none;
-    color: black;
+    color: rgb(255, 255, 255);
 }
 
 .active, .opciones ul li:hover{
@@ -160,9 +160,25 @@ header img{
     border: 0;
     border-radius: 3px; 
     margin-bottom: 0px;
+    margin-top: 20px;
     color: rgb(0, 0, 0);
     background-color: rgb(197, 197, 197)!important;
     box-shadow: 0 4px 18px 0 rgba(0, 0, 0, 0.658), 0 7px 10px -5px rgba(91, 107, 250, 0.829) !important;
     z-index: 1000 !important;
     transition: all 150ms ease 0s
+}
+
+.contenedor-imagenes {
+    display: -moz-box;
+    justify-content: space-around;
+}
+
+.contenedor-imagenes img{
+    height: 250px;
+    width: auto;
+    margin: 20px;
+    box-shadow: 0 4px 18px 0 rgba(0, 0, 0, 0.658), 0 7px 10px -5px rgba(91, 107, 250, 0.829) !important;
+    background-color: whitesmoke;
+    padding: 15px;
+    padding-bottom: 50px;
 }
