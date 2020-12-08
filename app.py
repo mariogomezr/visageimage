@@ -21,6 +21,11 @@ def registro():
     return render_template('registro.html')
 
 
+@app.route('/cambiaPass', methods=['GET', 'POST'])
+def cambiaPass():
+    return render_template('cambiaPass.html')
+
+
 @app.route('/nosotros', methods=['GET'])
 def nosotros():
     return render_template('Nosotros.html')
