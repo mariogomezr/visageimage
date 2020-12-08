@@ -11,7 +11,7 @@ def index():
     return render_template('index.html')
 
 
-@app.route('/login', methods=['GET'])
+@app.route('/login', methods=['GET', 'POST'])
 def login():
     return render_template('ingreso.html')
 
@@ -31,7 +31,7 @@ def nosotros():
     return render_template('Nosotros.html')
 
 
-@app.route('/perfil', methods=['GET'])
+@app.route('/perfil', methods=['GET', 'POST'])  # Dejar en POST para que cuando se inicie sesión se redireccione al perfil
 def perfil():
     return render_template('perfil.html')
 
