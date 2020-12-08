@@ -14,7 +14,7 @@
             <input class="caja-texto" type="password" name="contrasena" id="contrasena" placeholder="Ingrese su contraseña">
             <input class="boton" id="boton-iniciosesion" type="submit" value="Iniciar sesión">
             <input class="boton" id="boton-registro-ingreso" type="submit" value="Registrarse">
-            <p class="texto"><a href="/src/vista/Html/olvidaPass.html">¿Olvidaste tu contraseña?</a></p>
+            <p class="texto"><a href="{{ url_for('cambiaPass') }}">¿Olvidaste tu contraseña?</a></p>
         </form>
     </section>
 </body>
