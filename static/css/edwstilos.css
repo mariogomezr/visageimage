@@ -10,12 +10,12 @@
     display: none;
   }
 body{padding-left: 250px;
-    background-image: url("../../../static/img/Subir_imagen.png");
+    background-image: url("../img/fondoRegistro.jpg");
     background-size: 100% 100%;
 }
-.letra_diminuta{
+ /*.letra_diminuta{
     asdf
 }
 .caja-texto{
-    
-}
+   
+}*/

@@ -33,8 +33,12 @@ def nosotros():
 
 @app.route('/perfil', methods=['GET', 'POST'])  # Dejar en POST para que cuando se inicie sesión se redireccione al perfil
 def perfil():
+    
     return render_template('perfil.html')
 
+@app.route('/subirimagen', methods=['GET','POST'])
+def subirimagen():
+    return render_template('SubirImagen.html')
 
 if __name__ == "__main__":
     app.run(debug=True)

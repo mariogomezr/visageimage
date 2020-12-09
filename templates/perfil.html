@@ -9,12 +9,13 @@
 </head>
 <body>
         <header class="header" >
-            <img src="../../../static/img/visageimage-cortada.jpg" />
+            <a href="{{ url_for('index') }}"><img src="../../../static/img/visageimage-cortada.jpg" /></a>
+            
             <div class="botones-inicio">
                 <nav>
                     <ul class="redicc">
-                        <li class="active2"><a href="../Html/index.html">inicio</a></li>
-                        <li class="active2"><a href="·">redireccion3</a></li>
+                        <li class="active2"><a href="{{ url_for('index') }}">Home</a></li>
+                        <li class="active2"><a href="{{ url_for('nosotros')}}">Nosotros</a></li>
                     </ul>
                 </nav> 
             </div> 
@@ -33,18 +34,18 @@
             <li class="active"><i class="fa fa-file-image-o" aria-hidden="true"></i><a href="#">MyGaleria</a>
                 <div class="submenu-1">
                     <ul>
-                        <li><a href="#">opcion1</a></li>
-                        <li><a href="#">opcion2</a></li>
-                        <li><a href="#">opcion3</a></li>
+                        <li><a href="{{ url_for('subirimagen')}}">Subir Imagen</a></li>
+                        <li><a href="#">borrar imagen</a></li>
+                        <li><a href="#">editar imagen</a></li>
                     </ul>
                 </div>
             </li>
             <li class="active"><i class="fa fa-cog" aria-hidden="true"></i><a href="#">configuracion</a>
                 <div class="submenu-2">
                     <ul>
-                        <li><a href="#">opcion1</a></li>
+                        <li><a href="#">editar perfil</a></li>
                         <li><a href="#">opcion2</a></li>
-                        <li><a href="#">opcion3</a></li>
+                        <li><a href="#">cerrar sesion</a></li>
                     </ul>
                 </div>
             </li>
