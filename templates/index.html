@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VisageImage</title>
+    <link rel="stylesheet" href="/static/css/normalize.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename = 'css/style.css') }}">
+    <script src="https://kit.fontawesome.com/16e7301bc6.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    
+    <section  >
+            <div class="barra-header">
+                <a href="/">
+                    <img src="/static/img/visageimage.png" alt="Logo VisageImage">
+                </a>
+                <nav class="navegacion">
+                    <a href="{{ url_for('index') }}">Home</a>
+                    <a href="{{ url_for('nosotros') }}">Nosotros</a>
+                    <a href="{{ url_for('perfil') }}">Perfil</a>
+                    <a href="{{ url_for('login') }}"> Login </a>
+                </nav>
+            </div>
+    </section>
+
+    <section>
+            <div class="contenedor-buscarima">
+                <div class="cont-imgbuscar">
+                    <h1>Tu sitio web para compartir, descargar y apoyar a los talentos digitales.</h1>
+                    <a href="index.html">
+                        <img class="contimg" src="/static/img/visageimage.png" alt="Logo VisageImage" >
+                     </a>
+                    <form class="formSearch">
+                        <i class="fas fa-search" aria-hidden="true"></i>
+                        <input class="form-control" type="text" placeholder="Search" size="50" aria-label="Search">
+                    </form>
+                </div>
+            </div>
+    </section>
+    
+    <section>
+        <div class="row">
+            <div class="column">
+                <img src="/static/img/dumbo-4582501_640.jpg" alt="" srcset="">
+                <img src="/static/img/faro-5525698_640.jpg" alt="" srcset="">
+                <img src="/static/img/fire-4515924_640.jpg" alt="" srcset="">
+            </div>
+            <div class="column">
+                <img src="/static/img/geese-5568976_640.jpg" alt="" srcset="">
+                <img src="/static/img/hot-air-balloons-4561263_640.jpg" alt="" srcset="">
+                <img src="/static/img/little-girl-5785590_640.jpg" alt="" srcset="">
+            </div>
+            <div class="column">
+                <img src="/static/img/sea-5621174_640.jpg" alt="" srcset="">
+                <img src="/static/img/stars-5442598_640.jpg" alt="" srcset="">
+                <img src="/static/img/turnstile-5623053_640.jpg" alt="" srcset="">
+            </div>
+        </div>
+    </div>
+    </section>
+
+    <footer class="barra-header">
+        <p class="copyright-text"> Copyright &copy; 2017 All Rights Reserved by VisageImage </p>
+        <nav class="navegacion">
+            <a href="{{ url_for('index') }}">Home</a>
+            <a href="{{ url_for('nosotros') }}">Nosotros</a>
+             <a href="{{ url_for('perfil') }}">Perfil</a>
+            <a href="{{ url_for('login') }}"> Login </a>
+        </nav>
+    </footer>
+
+</body>
+</html>
+

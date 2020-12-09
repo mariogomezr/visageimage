@@ -1,0 +1,184 @@
+*{
+    font-family: Arial, Helvetica, sans-serif;
+}
+/* ------------------------------- letras---------------------------------------------------------------- */
+h1,h2{
+    font-size: 20px;
+    font-weight: bold;
+}
+
+h3{
+    text-decoration: none;
+    color: black;
+    font-size: 20px;
+    font-weight: lighter;
+}
+/* ------------------------------- recuadro encabezado --------------------------------------------------- */
+header{
+    border: 0;
+    border-radius: 3px;
+    padding: .625rem 0;
+    margin-bottom: 0px;
+    height: 90px;
+    width: 1250px;
+    color: rgb(71, 70, 70);
+    background-color: rgba(255, 255, 255, 0.959)!important;
+    box-shadow: 0 4px 18px 0 rgba(0, 0, 0, 0.658), 0 7px 10px -5px rgba(91, 107, 250, 0.829) !important;
+    z-index: 1000 !important;
+    transition: all 150ms ease 0s;
+}
+header img{
+    height: fit-content;
+    margin-top: 16px;
+}
+.header{
+    display: flex;
+    justify-content: space-between;
+}
+/* ------------------------ botones recuadro encabezado   --------------------------------------------- */
+
+.redicc li {
+    list-style: none;
+    display: inline-block;
+    color: black;
+    font-size: 17.5px;
+}
+/* ----------------------------- recuadro botones -----------------------------------------------------*/
+
+.header ul li{
+    width: 120px;
+    margin: 15px;
+    padding: 15px;
+    position: relative;
+    right: 30px;
+    bottom: 10px; 
+}
+
+.header ul li a{
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+}
+
+.active2, .header ul li:hover{
+    background: rgb(163, 162, 162);
+    border-radius: 3px;
+}
+/* ------------------------------- foto perfil----------------------------------------------------------- */
+.fotoPerfil {
+    position: relative;
+    height: 250px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.fotoPerfil img{
+    width: 200;
+    height: 200px;
+    border-radius: 100%;
+}
+/* ----------------------------------- nombre perfil ---------------------------------------------------*/
+.Nombre h2 {
+    text-align: center;
+}
+/* ------------------------------------- segundo contenedor -------------------------------------------- */
+.opciones ul {
+    padding: 0;
+    margin: 0;
+    display: inline-flex;
+    list-style: none;
+    
+}
+
+.opciones {
+    border: 0;
+    border-radius: 3px; 
+    margin-bottom: 0px;
+    color: rgb(255, 255, 255);
+    background-color: rgb(197, 197, 197)!important;
+    box-shadow: 0 4px 18px 0 rgba(0, 0, 0, 0.658), 0 7px 10px -5px rgba(91, 107, 250, 0.829) !important;
+    z-index: 1000 !important;
+    transition: all 150ms ease 0s
+}
+
+.opciones ul li{
+    width: 120px;
+    margin: 15px;
+    padding: 15px;
+    position: relative; 
+}
+
+.opciones ul li a{
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+}
+
+.active, .opciones ul li:hover{
+    background: rgb(138, 136, 136);
+    border-radius: 3px;
+}
+/* sub menu ------------configuracion mygalery----------------------------------------------------------- */
+.submenu-1{
+    display: none;
+}
+.opciones ul li:hover .submenu-1{
+    display: block;
+    position: absolute;
+    background-color: #555;
+    margin-top: 15px;
+    margin-left: -15px;
+}
+
+.opciones ul li:hover .submenu-1 ul{
+    display: block;
+}
+
+.opciones .fa{
+    margin-right: 8px;
+}
+
+.submenu-2{
+    display: none;
+}
+.opciones ul li:hover .submenu-2{
+    display: block;
+    position: absolute;
+    background-color: #555;
+    margin-top: 15px;
+    margin-left: -15px;
+}
+
+.opciones ul li:hover .submenu-2 ul{
+    display: block;
+}
+
+.opciones .fa{
+    margin-right: 8px;
+}
+/* -------- ------------------------contendor imagenes -------------------------------------------------- */
+.contenedor-imagenes {
+    border: 0;
+    border-radius: 3px; 
+    margin-bottom: 0px;
+    margin-top: 20px;
+    color: rgb(0, 0, 0);
+    background-color: rgb(197, 197, 197)!important;
+    box-shadow: 0 4px 18px 0 rgba(0, 0, 0, 0.658), 0 7px 10px -5px rgba(91, 107, 250, 0.829) !important;
+    z-index: 1000 !important;
+    transition: all 150ms ease 0s
+}
+
+.contenedor-imagenes {
+    display: -moz-box;
+    justify-content: space-around;
+}
+
+.contenedor-imagenes img{
+    height: 250px;
+    width: auto;
+    margin: 20px;
+    box-shadow: 0 4px 18px 0 rgba(0, 0, 0, 0.658), 0 7px 10px -5px rgba(91, 107, 250, 0.829) !important;
+    background-color: whitesmoke;
+    padding: 15px;
+    padding-bottom: 50px;
+}

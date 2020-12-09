@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename = 'css/edwstilos.css') }}" >
+    <script type="text/javascript" src="../JavaScript/fotos_en_pagina.js">
+    </script>
+
+</head>
+<body>
+    <section id="tarjeta-ingreso">
+        <br>
+        <h1 class="titulos">Nueva imagen</h1>
+
+        <h2 class="titulos">Asigna un nombre*</h2>
+        <input size="45" type="text" name="nombreImagen" id="nombreImagen" placeholder="Elige un nombre para tu imagen*">
+        <br>
+        <h2 class="titulos">    Asigna una etiqueta*</h2>
+        <input size="45" type="text" name="etiqueta" id="etiqueta" placeholder="Elige una etiqueta para tu imagen*">
+        <br>
+
+        <label class="titulos" for="campoRadioPublica"> Publica </label>
+        <input type="radio" name="RadioPrivada" id="campoRadioPublica" value="Publica" />
+        <label class="titulos" for="campoRadioPrivada">Privada</label>
+        <input type="radio" name="RadioPrivada" id="campoRadioPrivada" value="Privada" />
+        <br>
+        <div class="image-upload">
+                <label for="file-input">
+                  <img src="../static/img/subir_nube.png" width="600" height="270" style="cursor:pointer"/>
+                </label>          
+                <input id="file-input" type="file" />
+                
+
+        </div>
+        
+        <br>
+        <input id="Cancelar" type="button" value="Cancelar" class="escandal" >
+        <input id="Guardar" type="submit" value="Guardar" class="escandal">        
+    </section>
+
+
+</body>
+</html>

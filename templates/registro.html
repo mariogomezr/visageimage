@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename = 'css/estilos.css') }}">
+    <title>Crear cuenta | VisageImage</title>
+</head>
+<body id="body-registro">
+    <section class="tarjeta-formulario" id="tarjeta-registro">
+        <form action="" method="post">
+            <h4>Crea tu cuenta</h4>
+            <input class="caja-texto" type="text" name="nombre" id="nombre" placeholder="Ingrese su nombre completo">
+            <input class="caja-texto" type="text" name="usuario" id="usuario" placeholder="Ingrese su usuario">
+            <input class="caja-texto" type="email" name="correo" id="correo" placeholder="Ingrese su correo electrónico">
+            <input class="caja-texto" type="password" name="contrasena" id="contrasena" placeholder="Ingrese su contraseña">
+            <div class="texto">
+                <input type="checkbox" name="" id="aceptar-terms">
+                <span>He leído y acepto los <a href="/src/vista/Html/termsCond.html" target="_blank">Términos y condiciones</a></span>
+            </div>
+            <input class="boton" id="boton-registro-registro" type="submit" value="Registrarse">
+            <p class="texto"><a href="/src/vista/Html/ingreso.html">¿Ya tienes una cuenta?</a></p>
+        </form>
+    </section>
+</body>
+</html>

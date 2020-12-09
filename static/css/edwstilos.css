@@ -1,0 +1,21 @@
+.escandal{
+    background-color:#565a5e;
+    color: rgb(255, 255, 255); 
+}
+.titulos{
+    color: rgb(79, 82, 79);
+}
+
+.image-upload>input {
+    display: none;
+  }
+body{padding-left: 250px;
+    background-image: url("../img/fondoRegistro.jpg");
+    background-size: 100% 100%;
+}
+ /*.letra_diminuta{
+    asdf
+}
+.caja-texto{
+   
+}*/
