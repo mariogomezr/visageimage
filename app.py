@@ -42,7 +42,7 @@ def registro():
 def olvidaPass():
     form = OlvidaPassForm()
     if form.validate_on_submit():
-        return render_template('ingreso.html')
+        return render_template('index.html')
     return render_template('olvidaPass.html', form=form)
 
 
@@ -50,7 +50,7 @@ def olvidaPass():
 def cambiaPass():
     form = CambiaPassForm()
     if form.validate_on_submit():
-        return render_template("ingreso.html")
+        return render_template("index.html")
     return render_template('cambiaPass.html', form=form)
 
 
