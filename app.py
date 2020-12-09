@@ -1,5 +1,6 @@
 from flask import Flask, render_template, redirect, request, flash
-from forms import LoginForm
+from flask_wtf import form
+from forms import LoginForm, RegistroForm
 
 
 app = Flask(__name__)
@@ -30,7 +31,10 @@ def login():
 
 @app.route('/registro', methods=['GET', 'POST'])
 def registro():
-    return render_template('registro.html')
+    form = RegistroForm()
+    if form.validate_on_submit():
+        return render_template("perfil.html")
+    return render_template("registro.html", form=form)
 
 
 @app.route('/cambiaPass', methods=['GET', 'POST'])
@@ -51,6 +55,10 @@ def perfil():
 @app.route('/subirimagen', methods=['GET','POST'])
 def subirimagen():
     return render_template('SubirImagen.html')
+
+@app.route('/terminos', methods=['GET'])
+def terminos():
+    return render_template('termsCond.html')
 
 if __name__ == "__main__":
     app.run(debug=True)
