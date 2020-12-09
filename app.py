@@ -16,15 +16,14 @@ def index():
 @app.route('/login/', methods=['GET', 'POST'])
 def login():
     form = LoginForm()                  #Se instancia el objeto form --> WTForm
-    if form.validate_on_submit():       #Se valida si el usuario envia un metodo POST con los datos validos
+    if form.validate_on_submit():       #Se valida si el usuario envia un metodo POST con los datos validos            
         if form.submit.data:
             usuario = form.usuario.data         #Con estos datos se valida en la BD si esta registrado
             contrasena = form.contrasena.data
             #FALTA funcion chequear que el usuario este en la BD
-        
-        #next = request.args.get('next', None)   #Si lo esta tal accion
-        #if next:
-        #    return redirect(next)
+            next = request.args.get('next', None)   #Si lo esta tal accion
+            if next:
+                return redirect(next)
         return render_template("index.html")    #sino esta accion
     return render_template("ingreso.html", form = form) # Solo es ejecuta en el metodo GET
 

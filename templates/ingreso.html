@@ -28,9 +28,8 @@
                 {% endfor %}
             </div>
             <input class="boton" id="boton-iniciosesion" type="submit" value="Iniciar sesión" >
-            
-            <input class="boton" id="boton-registro-ingreso" type="submit" value="Registrarse" >
-            
+
+            <p class="texto"><a href="{{ url_for('registro') }}">¿No tienes cuenta? Registrate aqui.</a></p>
             <p class="texto"><a href="{{ url_for('cambiaPass') }}">¿Olvidaste tu contraseña?</a></p>
         </form>
     </section>
