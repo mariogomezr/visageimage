@@ -10,12 +10,27 @@
 <body id="body-ingreso">
     <section class="tarjeta-formulario" id="tarjeta-ingreso">
         <!--<form action="{{ url_for('perfil') }}" method="post">-->
-        <form id="form1" name="form1">
-            <h4>Iniciar sesión</h4>
-            <input class="caja-texto" type="text" name="usuario" id="usuario" placeholder="Ingrese su usuario">
-            <input class="caja-texto" type="password" name="contrasena" id="contrasena" placeholder="Ingrese su contraseña">
-            <input class="boton" id="boton-iniciosesion" type="submit" value="Iniciar sesión" onclick="document.form1.action = '{{ url_for('perfil') }}'; document.form1.submit(); document.form1.method='post'">
-            <input class="boton" id="boton-registro-ingreso" type="submit" value="Registrarse" onclick="document.form1.action = '{{ url_for('registro') }}'; document.form1.submit(); document.form1.method='post'">
+        <form action="" method="POST" novalidate>
+            {{ form.hidden_tag() }}
+            <div>
+                <h4>Iniciar sesión</h4>
+                {{ form.usuario.label }}
+                {{ form.usuario(size = 64, class_="caja-texto") }} <br>
+                {% for error in form.usuario.errors %}
+                <span style="color: red;">{{ error }}</span>
+                {% endfor %}
+            </div>
+            <div>
+                {{ form.contrasena.label }}
+                {{ form.contrasena(size = 64, class_="caja-texto") }} <br>
+                {% for error in form.contrasena.errors %}
+                <span style="color: red;">{{ error }}</span>
+                {% endfor %}
+            </div>
+            <input class="boton" id="boton-iniciosesion" type="submit" value="Iniciar sesión" >
+            
+            <input class="boton" id="boton-registro-ingreso" type="submit" value="Registrarse" >
+            
             <p class="texto"><a href="{{ url_for('cambiaPass') }}">¿Olvidaste tu contraseña?</a></p>
         </form>
     </section>
