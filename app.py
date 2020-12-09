@@ -1,6 +1,6 @@
 from flask import Flask, render_template, redirect, request, flash
 from flask_wtf import form
-from forms import LoginForm, RegistroForm
+from forms import CambiaPassForm, LoginForm, RegistroForm
 
 
 app = Flask(__name__)
@@ -39,7 +39,10 @@ def registro():
 
 @app.route('/cambiaPass', methods=['GET', 'POST'])
 def cambiaPass():
-    return render_template('cambiaPass.html')
+    form = CambiaPassForm()
+    if form.validate_on_submit():
+        return render_template("ingreso.html")
+    return render_template('cambiaPass.html', form=form)
 
 
 @app.route('/nosotros', methods=['GET'])

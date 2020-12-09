@@ -1,6 +1,7 @@
 from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField, PasswordField, BooleanField
-from wtforms.validators import DataRequired, Email, Length
+from wtforms import validators
+from wtforms.validators import DataRequired, Email, EqualTo, Length
 
 class LoginForm (FlaskForm):
     usuario = StringField('Usuario', validators = [DataRequired(), Length(max = 64)] )
@@ -13,5 +14,9 @@ class RegistroForm(FlaskForm):
     email = StringField('Correo electrónico', validators=[DataRequired(), Length(max=64)])
     contrasena = PasswordField('Contraseña ', validators = [DataRequired(),])
     submit = SubmitField('Registrarse')
+
+class CambiaPassForm(FlaskForm):
+    contrasena = PasswordField('Nueva contraseña', validators=[DataRequired(), EqualTo('confirmar', message='Las contraseñas deben coincidir')])
+    confirmar = PasswordField('Repite la contraseña', validators=[DataRequired()])
     
 
