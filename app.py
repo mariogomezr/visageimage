@@ -78,6 +78,5 @@ def verImagen():
 def terminos():
     return render_template('termsCond.html')
 
-
 if __name__ == "__main__":
     app.run(debug=True)
