@@ -30,11 +30,26 @@ h2{
     font-size: 25px;
     /*font-family: "Garamond";*/
 }
-#iconoDescargar{
+/*#iconoDescargar{
     position: absolute;
     right: 180px;
     top: 100px;    
-}
+}*/
+.btn {
+    background-color:  rgb(203, 203, 203);
+    border: none; /* Remove borders */
+    font-size: 40px; /* Set a font size */
+    cursor: pointer; /* Mouse pointer on hover */
+    position: absolute;
+    right: 180px;
+    top: 100px; 
+  }
+.btn:active {
+    transform: translateY(5px);
+  }
+.btn:focus{
+    outline:0;
+  }
 #iconoUsuario{
     position: absolute;
     left: 220px;
