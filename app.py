@@ -58,6 +58,11 @@ def cambiaPass():
 def nosotros():
     return render_template('Nosotros.html')
 
+@app.route('/vistaModificar', methods=['GET', 'POST'])
+def vistaModificar():
+    return render_template('vistaModificar.html')
+
+
 
 # Dejar en POST para que cuando se inicie sesión se redireccione al perfil
 @app.route('/perfil', methods=['GET', 'POST'])
