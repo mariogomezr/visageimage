@@ -6,11 +6,19 @@
     <link rel="stylesheet" href="{{ url_for('static', filename = 'css/estilos.css') }}">
     <title>Recuperar contraseña | VisageImage</title>
 </head>
+
 <body id="body-olvidaPass">
     <section class="tarjeta-formulario" id="tarjeta-ingreso">
-        <form action="" method="post">
-            <h4>Recuperar contraseña</h4>
-            <input class="caja-texto" type="email" name="email" id="email" placeholder="Ingrese su correo electrónico">
+        <form action="" method="post" novalidate>
+            {{ form.hidden_tag() }}
+            <div>
+                <h4>Recuperar contraseña</h4>
+                {{ form.email.label }}
+                {{ form.email(size = 64, class_="caja-texto") }} <br>
+                {% for error in form.email.errors %}
+                    <span style="color: red;">{{ error }}</span>
+                {% endfor %}
+            </div>
             <input class="boton" id="boton-olvidaPass" type="submit" value="Enviar">
         </form>
     </section>

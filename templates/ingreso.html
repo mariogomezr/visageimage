@@ -9,7 +9,6 @@
 
 <body id="body-ingreso">
     <section class="tarjeta-formulario" id="tarjeta-ingreso">
-        <!--<form action="{{ url_for('perfil') }}" method="post">-->
         <form action="" method="POST" novalidate>
             {{ form.hidden_tag() }}
             <div>
@@ -30,7 +29,7 @@
             <input class="boton" id="boton-iniciosesion" type="submit" value="Iniciar sesión" >
 
             <p class="texto"><a href="{{ url_for('registro') }}">¿No tienes cuenta? Registrate aqui.</a></p>
-            <p class="texto"><a href="{{ url_for('cambiaPass') }}">¿Olvidaste tu contraseña?</a></p>
+            <p class="texto"><a href="{{ url_for('olvidaPass') }}">¿Olvidaste tu contraseña?</a></p>
         </form>
     </section>
 </body>
