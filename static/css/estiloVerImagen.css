@@ -1,6 +1,6 @@
-body{
-    background-image: url('../../../static/img/fondoVerImagen.png');
-    background-attachment: fixed;
+#principal{
+    background-image: url('/static/img/fondoVerImagen.png');
+    background-size: cover;
 }
 .imagenSeleccionada{
     position: absolute; 

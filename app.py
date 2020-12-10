@@ -52,5 +52,9 @@ def perfil():
 def subirimagen():
     return render_template('SubirImagen.html')
 
+@app.route('/verImagen', methods=['GET'])
+def verImagen():
+    return render_template('verImagen.html')
+
 if __name__ == "__main__":
     app.run(debug=True)
