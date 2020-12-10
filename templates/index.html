@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="/static/css/normalize.css">
     <link rel="stylesheet" href="{{ url_for('static', filename = 'css/style.css') }}">
     <script src="https://kit.fontawesome.com/16e7301bc6.js" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="../static/js/llamarimagen.js"></script>
 </head>
 
 <body>
@@ -43,19 +44,25 @@
     <section>
         <div class="row">
             <div class="column">
-                <img src="/static/img/dumbo-4582501_640.jpg" alt="" srcset="">
-                <img src="/static/img/faro-5525698_640.jpg" alt="" srcset="">
-                <img src="/static/img/fire-4515924_640.jpg" alt="" srcset="">
+                <a href="verImagen" target = "_self">
+                    <img src="/static/img/dumbo-4582501_640.jpg" onclick="guardar_src(this.src);" alt="" srcset="">
+                    <img src="/static/img/faro-5525698_640.jpg" onclick="guardar_src(this.src);" alt="" srcset="">
+                    <img src="/static/img/fire-4515924_640.jpg" onclick="guardar_src(this.src);" alt="" srcset="">
+                </a>
             </div>
             <div class="column">
-                <img src="/static/img/geese-5568976_640.jpg" alt="" srcset="">
-                <img src="/static/img/hot-air-balloons-4561263_640.jpg" alt="" srcset="">
-                <img src="/static/img/little-girl-5785590_640.jpg" alt="" srcset="">
+                <a href="verImagen" target = "_self">
+                    <img src="/static/img/geese-5568976_640.jpg" onclick="guardar_src(this.src);" alt="" srcset="">
+                    <img src="/static/img/hot-air-balloons-4561263_640.jpg" onclick="guardar_src(this.src);" alt="" srcset="">
+                    <img src="/static/img/little-girl-5785590_640.jpg" onclick="guardar_src(this.src);" alt="" srcset="">
+                </a>
             </div>
             <div class="column">
-                <img src="/static/img/sea-5621174_640.jpg" alt="" srcset="">
-                <img src="/static/img/stars-5442598_640.jpg" alt="" srcset="">
-                <img src="/static/img/turnstile-5623053_640.jpg" alt="" srcset="">
+                <a href="verImagen">
+                    <img src="/static/img/sea-5621174_640.jpg" onclick="guardar_src(this.src);" alt="" srcset="">
+                    <img src="/static/img/stars-5442598_640.jpg" onclick="guardar_src(this.src);" alt="" srcset="">
+                    <img src="/static/img/turnstile-5623053_640.jpg" onclick="guardar_src(this.src);" alt="" srcset="">
+                </a>
             </div>
         </div>
     </div>
@@ -70,6 +77,8 @@
             <a href="{{ url_for('login') }}"> Login </a>
         </nav>
     </footer>
+    
+
 
 </body>
 </html>

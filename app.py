@@ -70,6 +70,9 @@ def perfil():
 def subirimagen():
     return render_template('SubirImagen.html')
 
+@app.route('/verImagen', methods=['GET'])
+def verImagen():
+    return render_template('verImagen.html')
 
 @app.route('/terminos', methods=['GET'])
 def terminos():
