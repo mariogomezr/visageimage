@@ -1,5 +1,5 @@
-function guardar_src(_src) {
-    localStorage.setItem('x',_src);
+function guardar_src(idImg) {
+    localStorage.setItem('x',idImg);
 }
 
 function poner_src() {
@@ -14,8 +14,8 @@ function poner_src() {
 /*function descargar(){
 }*/
 
-function guardar_nombre(_nombre) {
-    localStorage.setItem('y',_nombre);
+function guardar_nombre(idImg) {
+    localStorage.setItem('y',idImg);
 }
 
 function poner_nombre() {
