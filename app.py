@@ -1,13 +1,24 @@
+from forms import CambiaPassForm, LoginForm, OlvidaPassForm, RegistroForm
 from flask import Flask, render_template, redirect, request, flash
+from flask_mail import Mail, Message
 from flask.helpers import url_for
 from flask_wtf import form
-from forms import CambiaPassForm, LoginForm, OlvidaPassForm, RegistroForm
-import sys
 import logging
+import email
+import sys
 
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = '7110c8ae51a4b5af97be6534caef90e4bb9bdcb3380af008f90b23a5d1616bf319bc298105da20fe'
+app.config.update(
+    MAIL_SERVER = 'smtp.gmail.com',
+    MAIL_PORT = 465,
+    MAIL_USE_SSL = True,
+    MAIL_USERNAME = 'visageimage01@gmail.com',
+    MAIL_PASSWORD = 'misiontic123'
+)
+
+mail = Mail(app)
 
 #logging.basicConfig(filename='demo.log', level=logging.DEBUG)
 
@@ -79,8 +90,19 @@ def olvidaPass():
         next = request.args.get('next', None)
         if next:
             return redirect(next)
-        return redirect(url_for('index'))
+        return redirect(url_for('enviar_mensaje', email=email))
     return render_template('olvidaPass.html', form=form)
+
+
+@app.route('/mensaje/<string:email>')
+def enviar_mensaje(email=None):
+    msg = mail.send_message(
+        'Cambiar contraseña',
+        sender = 'VisageImage',
+        recipients = [email],
+        body = 'Ingresa al siguiente link para restablecer tu contraseña: http://127.0.0.1:5000/cambiaPass'
+    )
+    return 'Mensaje enviado'
 
 
 @app.route('/cambiaPass', methods=['GET', 'POST'])
