@@ -14,17 +14,17 @@ class LoginForm (FlaskForm):
 class RegistroForm(FlaskForm):
     nombre = StringField('Nombre completo', validators=[DataRequired(), Length(max=64)])
     usuario = StringField('Usuario', validators=[DataRequired(), Length(max=64)])
-    email = StringField('Correo electrónico', validators=[DataRequired(), Length(max=64)])
-    contrasena = PasswordField('Contraseña ', validators=[DataRequired(), ])
+    email = StringField('Correo electrónico', validators=[DataRequired(), Email()])
+    contrasena = PasswordField('Contraseña ', validators=[DataRequired()])
     submit = SubmitField('Registrarse')
+
+
+class OlvidaPassForm(FlaskForm):
+    email = StringField('Correo electrónico', validators=[DataRequired(), Email()])
+    submit = SubmitField('Enviar')
 
 
 class CambiaPassForm(FlaskForm):
     contrasena = PasswordField('Nueva contraseña', validators=[DataRequired(), EqualTo('confirmar', message='Las contraseñas deben coincidir')])
     confirmar = PasswordField('Repite la contraseña', validators=[DataRequired()])
     submit = SubmitField('Cambiar')
-
-
-class OlvidaPassForm(FlaskForm):
-    email = StringField('Correo electrónico', validators=[DataRequired(), Length(max=64)])
-    submit = SubmitField('Enviar')
