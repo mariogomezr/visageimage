@@ -1,20 +1,25 @@
+{% extends 'base.html' %}
 <!DOCTYPE html>
 <html lang="en">
-<head>
+    {% block header %}
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ver imagen | Visageimage</title>
     <link rel="stylesheet" href="{{ url_for('static', filename = 'css/estiloVerImagen.css') }}">
     <script src="https://kit.fontawesome.com/16e7301bc6.js" crossorigin="anonymous"></script>
     <script type="text/javascript" src="../static/js/llamarimagen.js"></script>
-    
-</head>
-<body id="principal" onload="load();"> 
-    <img class="imagenSeleccionada imagenModificar" id= "imagenPrincipal" src="../static/img/imagenPredeterminada.jpeg"/>
-    <h1 id="nombrePrincipal">Sunset in Cappadocia</h1>
-    <h2>#holydays #dreams #travel</h2>
-    <button class="btn"><i class="fas fa-cloud-download-alt" onclick="funcionDescargar();"></i></button>
-    <i class="fas fa-user-circle fa-2x" id="iconoUsuario"></i>
-    <h3>Nombre Usuario</h3>
-    <h4>@usuario</h4>
-</body>
+    {% endblock %}
+
+{% block content %}
+<section id="principal" onload="load();">
+    <div >
+        <img class="imagenSeleccionada imagenModificar" id= "imagenPrincipal" src="../static/img/imagenPredeterminada.jpeg"/>
+        <h1 id="nombrePrincipal">Sunset in Cappadocia</h1>
+        <h2>#holydays #dreams #travel</h2>
+        <button class="btn"><i class="fas fa-cloud-download-alt" onclick="funcionDescargar();"></i></button>
+        <i class="fas fa-user-circle fa-2x" id="iconoUsuario"></i>
+        <h3>Nombre Usuario</h3>
+        <h4>@usuario</h4>
+    </div>
+</section>
+{% endblock %}    

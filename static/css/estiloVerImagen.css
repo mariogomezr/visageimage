@@ -1,6 +1,7 @@
-#principal{
+section{
     background-image: url('/static/img/fondoVerImagen.png');
     background-size: cover;
+    size: 70vh;
 }
 .imagenSeleccionada{
     position: absolute; 
