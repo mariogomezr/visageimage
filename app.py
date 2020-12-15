@@ -46,6 +46,11 @@ def login():
     return render_template("ingreso.html", form=form)  # Solo es ejecuta en el metodo GET
 
 
+@app.route( '/logout' )
+def logout():
+    session.clear()
+    return redirect( url_for( 'index' ) )
+
 @app.route('/registro', methods=['GET', 'POST'])
 def registro():
     form = RegistroForm()
