@@ -1,6 +1,8 @@
+{% extends 'base.html' %}
 <!DOCTYPE html>
 <html lang="en">
-<head>
+    
+    {% block header %}
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>VisageImage</title>
@@ -8,37 +10,9 @@
     <link rel="stylesheet" href="{{ url_for('static', filename = 'css/style.css') }}">
     <script src="https://kit.fontawesome.com/16e7301bc6.js" crossorigin="anonymous"></script>
     <script type="text/javascript" src="../static/js/llamarimagen.js"></script>
-</head>
-
-<body>
-    
-    <section  >
-            <div class="barra-header">
-                <a href="/">
-                    <img src="/static/img/visageimage.png" alt="Logo VisageImage">
-                </a>
-                <nav class="navegacion">
-                    <a href="{{ url_for('index') }}">Home</a>
-                    <a href="{{ url_for('nosotros') }}">Nosotros</a>
-                    <a href="{{ url_for('perfil') }}">Perfil</a>
-                    <a href="{{ url_for('login') }}"> Login   |</a>
-                    <a href="{{ url_for('registro') }}"> Registro </a>
-                </nav>
-            </div>
-    </section>
-
-            {% block content %}
-            <div class="container">
-                {% for message in get_flashed_messages() %}
-                <div class="alert alert-warning">
-                    <button type="button" class="close" data-dismiss="alert">&times;</button>
-                    {{ message }}
-                </div>
-                {% endfor %}
-            </div>
-            {% endblock %}
-            </html>
-
+    {% endblock %}
+            
+    {% block content %}
     <section>
             <div class="contenedor-buscarima">
                 <div class="cont-imgbuscar">
@@ -80,20 +54,7 @@
         </div>
     </div>
     </section>
-
-    <footer class="barra-header">
-        <p class="copyright-text"> Copyright &copy; 2017 All Rights Reserved by VisageImage </p>
-        <nav class="navegacion">
-            <a href="{{ url_for('index') }}">Home</a>
-            <a href="{{ url_for('nosotros') }}">Nosotros</a>
-             <a href="{{ url_for('perfil') }}">Perfil</a>
-            <a href="{{ url_for('login') }}"> Login   |</a>
-            <a href="{{ url_for('registro') }}"> Registro </a>
-        </nav>
-    </footer>
+    {% endblock %}
     
-
-
-</body>
 </html>
 

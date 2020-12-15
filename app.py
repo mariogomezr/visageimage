@@ -1,5 +1,5 @@
 from forms import CambiaPassForm, LoginForm, OlvidaPassForm, RegistroForm
-from flask import Flask, render_template, redirect, request, flash
+from flask import Flask, render_template, flash, request, redirect, url_for, jsonify, session, send_file, current_app, g
 from flask_mail import Mail, Message
 from flask.helpers import url_for
 from flask_wtf import form
@@ -21,25 +21,6 @@ app.config.update(
 mail = Mail(app)
 
 #logging.basicConfig(filename='demo.log', level=logging.DEBUG)
-
-class usuario():
-    def __init__(self, username, email, password):
-        self.username = username
-        self.email = email
-        self.password = password
-
-    def __init__(self, username, email):
-        self.username = username
-        self.email = email
-
-
-# Variables dinamicas en el url = < string nombre > / <int id>  // con esto podemos sacar el id de la imagen y el usuario asociado a la imagen
-
-
-prueba = { 
-    'username' : 'magio',
-    'password' : '1234'
-}
 
 
 @app.route('/', methods=['GET'])

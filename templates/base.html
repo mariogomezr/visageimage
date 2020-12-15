@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% block header %}{% endblock %}
+</head>
+<body>
+    <section  >
+        <div class="barra-header">
+            <a href="/">
+                <img src="/static/img/visageimage.png" alt="Logo VisageImage">
+            </a>
+            <nav class="navegacion">
+                <li><a href="{{ url_for('index') }}">Home</a>
+                <li><a href="{{ url_for('nosotros') }}">Nosotros</a>
+                {% if g.user %}
+                    <li>><a href="{{ url_for('perfil') }}">Perfil</a>
+                    <li>><a href="{{ url_for('perfil') }}">Cerrar Sesion</a>    
+                {% else %}
+                    <li><a href="{{ url_for('registro') }}"> Registro </a>
+                    <li><a href="{{ url_for('login') }}"> Login   |</a>
+                {% endif %}
+            </nav>
+        </div>
+    </section>
+    {% block content %}{% endblock %}
+    
+    <footer class="barra-header">
+        <p class="copyright-text"> Copyright &copy; 2017 All Rights Reserved by VisageImage </p>
+        <nav class="navegacion">
+            <a href="{{ url_for('index') }}">Home</a>
+            <a href="{{ url_for('nosotros') }}">Nosotros</a>
+             <a href="{{ url_for('perfil') }}">Perfil</a>
+            <a href="{{ url_for('login') }}"> Login   |</a>
+            <a href="{{ url_for('registro') }}"> Registro </a>
+        </nav>
+    </footer>
+</body>
+
+</html>
