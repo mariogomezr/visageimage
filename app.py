@@ -41,13 +41,9 @@ def login_required(view):
     def login_required_func():
         if g.user is None:
             return redirect( url_for( 'login' ) )
-    return login_required_func
+    return login_required_func()
 
 #Helper Functions
-@app.route( '/downloadimage', methods=['GET', 'POST'] )
-@login_required
-def download_image(file_url):
-    return send_file( file_url, as_attachment=True )
 
 def enviar_mensaje_activacion(email=None):
     msg = mail.send_message(
@@ -226,6 +222,10 @@ def subirimagen():
 
     return render_template('SubirImagen.html', form = form)
 
+@app.route( '/downloadimage', methods=['GET', 'POST'] )
+@login_required
+def download_image(file_url):
+    return send_file( file_url, as_attachment=True )
 
 @app.route('/verImagen', methods=['GET'])
 def verImagen():
