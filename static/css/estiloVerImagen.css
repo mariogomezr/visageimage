@@ -1,12 +1,15 @@
-section{
-    background-image: url('/static/img/fondoVerImagen.png');
-    background-size: cover;
+.principal{
+    background-image: url(/static/img/fondoVerImagen.png);
+    background-attachment: fixed;
     size: 70vh;
-}
+} 
+
 .imagenSeleccionada{
-    position: absolute; 
-    top: 85px; 
-    right: 350px; 
+    border: 5px solid whitesmoke; 
+    border-radius: 60px; 
+    /*object-fit: contain;*/
+    /*width: 400px; 
+    height: 500px;*/ 
 }
 .imagenModificar{
     border: 5px solid whitesmoke; 
@@ -14,61 +17,108 @@ section{
     width: 400px; 
     height: 500px;
 }
-h1{
-    position: absolute;
-    left: 120px;
-    top: 250px;
-    font-family: 'arial';
-    font-style: italic;
-    font-size: 40px;
-    /*font-family: "Lucida Handwriting";*/
-}
-h2{
-    position: absolute;
-    left: 120px;
-    top: 320px;
-    font-family: 'arial';
-    font-size: 25px;
-    /*font-family: "Garamond";*/
-}
+
 /*#iconoDescargar{
     position: absolute;
     right: 180px;
     top: 100px;    
 }*/
+
 .btn {
-    background-color:  rgb(203, 203, 203);
+    /*background-color:  rgb(203, 203, 203);*/
+    background-color: transparent;
     border: none; /* Remove borders */
     font-size: 40px; /* Set a font size */
     cursor: pointer; /* Mouse pointer on hover */
-    position: absolute;
-    right: 180px;
-    top: 100px; 
+    /*position: fixed;
+    right: 700px;
+    top: 120px;*/ 
   }
 .btn:active {
-    transform: translateY(5px);
+    transform: translateY(2px);
   }
 .btn:focus{
     outline:0;
   }
-#iconoUsuario{
+/*#iconoUsuario{
     position: absolute;
     left: 220px;
-    top: 50px;    
+    top: 120px;    
+}*/
+
+.rowcol {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0 4px;
+  }
+  
+  /* Create four equal columns that sits next to each other */
+  .columnas {
+    flex: 25%;
+    max-width: 100%;
+    padding: 30px 30px;
+    text-align: center;
+  }
+  
+  .columnas img {
+    margin-top: 8px;
+    width: max-content;
+    height: max-content;
+    align-items: center;
+  }
+  
+  /* Responsive layout - makes a two column-layout instead of four columns */
+  @media screen and (max-width: 800px) {
+    .columnas {
+      flex: 50%;
+      max-width: 50%;
+    }
+  }
+  
+  /* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+  @media screen and (max-width: 600px) {
+    .columnas {
+      flex: 100%;
+      max-width: 100%;
+    }
+  }
+
+.informacion-usuario{
+    margin-top: 60px;
+    margin-left: 150px;
+    text-align: left; 
 }
-h3{
-    position: absolute;
-    left: 260px;
-    top: 30px;
-    /*font-family: "Garamond";*/
-    font-family: 'arial';
-    font-size: 17px;
+
+.informacion-usuario div{
+  display: inline-block; 
 }
-h4{
-    position: absolute;
-    left: 260px;
-    top: 40px;
-    /*font-family: "Garamond";*/
-    font-family: 'arial';
-    font-size: 17px;
+
+.informacion-usuario div label{
+  display: block;  
+  text-align: left;
+  font-family: 'arial';
+  font-size: 17px;
+}
+
+.informacion-imagen{
+margin-top: 170px;
+}
+
+.informacion-imagen label{
+  display: block; 
+}
+
+#nombrePrincipal{
+  font-family: 'arial';
+  font-style: italic;
+  font-size: 45px;
+}
+
+#etiquetas{
+  font-family: 'arial';
+  font-size: 25px;
+}
+
+.columna-imagen div{
+  display: inline-block;
 }
