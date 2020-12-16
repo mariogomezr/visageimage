@@ -1,5 +1,5 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, SubmitField, PasswordField, BooleanField
+from wtforms import StringField, SubmitField, PasswordField, BooleanField, FileField
 from wtforms import validators
 from wtforms.validators import DataRequired, Email, EqualTo, Length
 
@@ -28,3 +28,9 @@ class CambiaPassForm(FlaskForm):
     contrasena = PasswordField('Nueva contraseña', validators=[DataRequired(), EqualTo('confirmar', message='Las contraseñas deben coincidir')])
     confirmar = PasswordField('Repite la contraseña', validators=[DataRequired()])
     submit = SubmitField('Cambiar')
+
+class subirimagenForm(FlaskForm):
+    titulo_img = StringField('tituloImagen',validators=[DataRequired()])
+    etiq_img = StringField('etiqueta',validators=[DataRequired()])
+    file = FileField('file' )
+    submit = SubmitField('Guardar')

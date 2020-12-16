@@ -16,7 +16,7 @@
         <img class="imagenSeleccionada imagenModificar" id= "imagenPrincipal" src="../static/img/imagenPredeterminada.jpeg"/>
         <h1 id="nombrePrincipal">Sunset in Cappadocia</h1>
         <h2>#holydays #dreams #travel</h2>
-        <button class="btn"><i class="fas fa-cloud-download-alt" onclick="funcionDescargar();"></i></button>
+        <a href="{{ url_for('downloadimage')}}"><button class="btn"><i class="fas fa-cloud-download-alt" onclick="funcionDescargar();"></i></button></a>
         <i class="fas fa-user-circle fa-2x" id="iconoUsuario"></i>
         <h3>Nombre Usuario</h3>
         <h4>@usuario</h4>
