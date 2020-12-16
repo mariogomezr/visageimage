@@ -39,7 +39,7 @@ def load_logged_in_user():
 
 def login_required(view):
     def login_required_func():
-        if g.user is None:
+        if g.user is None:      #no se ha logeado
             return redirect( url_for( 'login' ) )
     return login_required_func()
 
@@ -109,7 +109,7 @@ def registro():
 
             #Si el usuario ya existe
             if db.execute( 'SELECT id_usuario FROM usuarios WHERE username = ?', (usuario,) ).fetchone() is not None:
-                error = 'El correo {} ya existe'.format( usuario )
+                error = 'El usuario {} ya existe'.format( usuario )
                 flash( error )
                 return render_template( 'registro.html', form=form)
 
@@ -209,13 +209,13 @@ def subirimagen():
 
             if archivo is None or archivo == '':
                 flash('Ingrese un archivo con extension .jpg o .png')
-                return render_template('index.html', form = form)
+                return render_template('subirimagen.html', form = form)
 
             if archivo and allowed_file(archivo.filename):   #Si existe el archivo y tiene extension permitida
                 archivo = secure_filename(archivo.filename)
                 path_archivo = os.path.join(app.config['UPLOAD_FOLDER'], archivo)
                 file.save(path_archivo)
-                #Si el usuario ya existe
+                #Si la imagen ya existe en la BD
                 if db.execute( 'SELECT url FROM imagenes WHERE url = ?', (path_archivo,) ).fetchone() is not None:
                     error = 'La imagen ya existe en la base de datos, pruebe con un nombre diferente'
                     flash( error )
@@ -223,7 +223,7 @@ def subirimagen():
                 else:
                     db.execute(     #Ejecucion del query
                     'INSERT INTO imagenes (url, autor, titulo, fk_usuario) VALUES (?,?,?,?)',
-                    (path_archivo, usuario, titulo, usuario) )
+                    (path_archivo, usuario, titulo_img, usuario) )
                     db.commit()     #Chequear informacion en la BD
                     return redirect(url_for('perfil'))  
 
