@@ -20,8 +20,6 @@
     position: relative;
 }
 
-
-
 .cont-imgbuscar{
     margin: 0;
     position: absolute;
@@ -29,7 +27,6 @@
     left: 50%;
     transform: translate(-50%, -50%);
 }
-
 
 .contimg {
     position: relative;
@@ -39,8 +36,24 @@
 }
 
 .formSearch{
-    padding: 0 25% 0 25% ;
+  display: inline-block;
+  text-align: center;
+}
 
+.boton-buscar {
+  /*background-color:  rgb(203, 203, 203);*/
+  background-color: transparent;
+  border: none; /* Remove borders */
+  font-size: 18px; /* Set a font size */
+  cursor: pointer; /* Mouse pointer on hover */
+}
+
+.boton-buscar:active {
+  transform: translateY(2px);
+}
+
+.boton-buscar:focus{
+  outline:0;
 }
 
 .header{
@@ -72,14 +85,15 @@
 /* Create four equal columns that sits next to each other */
 .column {
   flex: 25%;
-  max-width: 25%;
-  padding: 0 4px;
+  max-width: max-content;
+  padding: 0 3px;
 }
 
 .column img {
   margin-top: 8px;
   vertical-align: middle;
   width: 100%;
+  height: 30%;
 }
 
 /* Responsive layout - makes a two column-layout instead of four columns */
