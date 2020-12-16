@@ -160,8 +160,15 @@ def enviar_mensaje(email=None):
 def cambiaPass():
     form = CambiaPassForm()
     if form.validate_on_submit():
+        db = get_db()
+        email = form.email.data
         contrasena = form.contrasena.data
         confirmar = form.confirmar.data
+
+        db.execute(
+            'UPDATE usuarios SET password = ? WHERE email = ?', (contrasena, email)
+        )
+        db.commit()
 
         next = request.args.get('next', None)
         if next:

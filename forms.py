@@ -25,6 +25,7 @@ class OlvidaPassForm(FlaskForm):
 
 
 class CambiaPassForm(FlaskForm):
+    email = StringField('Correo electrónico', validators=[DataRequired(), Email()])
     contrasena = PasswordField('Nueva contraseña', validators=[DataRequired(), EqualTo('confirmar', message='Las contraseñas deben coincidir')])
     confirmar = PasswordField('Repite la contraseña', validators=[DataRequired()])
     submit = SubmitField('Cambiar')
