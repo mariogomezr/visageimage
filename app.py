@@ -3,6 +3,7 @@ from flask import Flask, render_template, flash, request, redirect, url_for, jso
 from flask_mail import Mail, Message
 from flask_wtf import form
 import logging, email, sys, os
+from werkzeug.security import generate_password_hash, check_password_hash
 from werkzeug.utils import secure_filename
 from db import get_db, close_db
 
@@ -82,9 +83,14 @@ def login():
                     flash(error)
                     return render_template("ingreso.html", form=form)
                 else:               #Si se encuentra, se crea la session y se devuelve a la pagina principal
-                    session.clear()
-                    session['user_id'] = user[0]
-                    return redirect( url_for('index'))
+                    if check_password_hash(user['password'], contrasena):
+                        session.clear()
+                        session['user_id'] = user[0]
+                        return redirect( url_for('index'))
+                    else:
+                        error = 'Usuario o contrasena invalidos'
+                        flash(error)
+                        return render_template("ingreso.html", form=form)
 
     if request.method == 'GET':
         return render_template("ingreso.html", form=form)  # Solo es ejecuta en el metodo GET
@@ -105,7 +111,7 @@ def registro():
             nombre = form.nombre.data
             usuario = form.usuario.data
             email = form.email.data
-            contrasena = form.contrasena.data
+            contrasena = generate_password_hash(form.contrasena.data)
 
             #Si el usuario ya existe
             if db.execute( 'SELECT id_usuario FROM usuarios WHERE username = ?', (usuario,) ).fetchone() is not None:
