@@ -76,21 +76,24 @@ def login():
         if form.validate_on_submit():  # Se valida si el usuario envia un metodo POST con los datos validos
                 usuario = form.usuario.data  # Con estos datos se valida en la BD si esta registrado
                 contrasena = form.contrasena.data
-                user = db.execute('SELECT * FROM usuarios WHERE username = ? AND password = ?', (usuario, contrasena)
+                user = db.execute('SELECT * FROM usuarios WHERE username = ?', (usuario,)
                        ).fetchone()
                 if user is None:    #Si el no se encuentra en la base de datos
                     error = 'Usuario o contrasena invalidos'
                     flash(error)
                     return render_template("ingreso.html", form=form)
-                else:               #Si se encuentra, se crea la session y se devuelve a la pagina principal
-                    if check_password_hash(user['password'], contrasena):
-                        session.clear()
-                        session['user_id'] = user[0]
-                        return redirect( url_for('index'))
-                    else:
-                        error = 'Usuario o contrasena invalidos'
-                        flash(error)
-                        return render_template("ingreso.html", form=form)
+                           #Si se encuentra, se crea la session y se devuelve a la pagina principal
+
+                if check_password_hash(user['password'], contrasena):
+                    session.clear()
+                    session['user_id'] = user[0]
+                    return redirect(url_for('index'))
+                else:
+                    error = 'Usuario o contrasena invalidos'
+                    flash(error)
+                    return render_template("ingreso.html", form=form)
+        else:
+            return render_template("ingreso.html", form=form)
 
     if request.method == 'GET':
         return render_template("ingreso.html", form=form)  # Solo es ejecuta en el metodo GET
