@@ -12,7 +12,6 @@ UPLOAD_FOLDER = r'static\uploaded_imgs'
 ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg'}
 
 app = Flask(__name__)
-app.app_context().push()
 app.config['SECRET_KEY'] = '7110c8ae51a4b5af97be6534caef90e4bb9bdcb3380af008f90b23a5d1616bf319bc298105da20fe'
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 app.config.update(
@@ -43,7 +42,7 @@ def login_required(view):
     def login_required_func():
         if g.user is None:      #no se ha logeado
             return redirect( url_for( 'login' ) )
-    return login_required_func()
+    return login_required_func
 
 #Helper Functions
 
