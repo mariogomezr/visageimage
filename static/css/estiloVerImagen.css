@@ -30,9 +30,9 @@
     border: none; /* Remove borders */
     font-size: 40px; /* Set a font size */
     cursor: pointer; /* Mouse pointer on hover */
-    /*position: fixed;
-    right: 700px;
-    top: 120px;*/ 
+    position: relative;
+    right: 380px;
+    top: -380px;
   }
 .btn:active {
     transform: translateY(2px);
@@ -117,8 +117,4 @@ margin-top: 170px;
 #etiquetas{
   font-family: 'arial';
   font-size: 25px;
-}
-
-.columna-imagen div{
-  display: inline-block;
 }
