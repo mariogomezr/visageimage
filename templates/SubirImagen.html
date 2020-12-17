@@ -12,8 +12,11 @@
 </head>
 
 <body>
+    {% for message in get_flashed_messages() %}
+    <div class="flash">{{ message }}</div>
+    {% endfor %}
     <section id="tarjeta-ingreso">
-        <form action="" method="POST" novalidate>
+        <form action="/subirimagen" method="POST" novalidate enctype="multipart/form-data">
             <br>
             <div>
                 <h1 class="titulos">Nueva imagen</h1>
@@ -27,9 +30,9 @@
             </div>
             <div>
                 <h2 class="titulos"> Asigna una etiqueta*</h2>
-                {{ form.titulo_img.label }}
-                {{ form.titulo_img(size = 45, placeholder="Elige una etiqueta para tu imagen*")}}
-                {% for error in form.titulo_img.errors %}
+                {{ form.etiq_img.label }}
+                {{ form.etiq_img(size = 45, placeholder="Elige una etiqueta para tu imagen*")}}
+                {% for error in form.etiq_img.errors %}
                 <span style="color: red;">{{ error }}</span>
                 {% endfor %}
             </div>
@@ -37,7 +40,7 @@
                 <label for="file">
                     <img src="../static/img/subir_nube.png" width="600" height="270" style="cursor:pointer" />
                 </label>
-                <input id="file" type="file" accept=".jpg,.png" multiple />
+                <input id="file" type="file" name = "file" />
             </div>
 
             <br>

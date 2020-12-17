@@ -8,12 +8,12 @@ from werkzeug.utils import secure_filename
 from db import get_db, close_db
 
 #Configuracion
-UPLOAD_FOLDER = r'static\uploaded_imgs'
+
 ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg'}
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = '7110c8ae51a4b5af97be6534caef90e4bb9bdcb3380af008f90b23a5d1616bf319bc298105da20fe'
-app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
+app.config['UPLOAD_FOLDER'] = r'static\uploaded_img'
 app.config.update(
     MAIL_SERVER = 'smtp.gmail.com',
     MAIL_PORT = 465,
@@ -210,7 +210,7 @@ def subirimagen():
     form = subirimagenForm()
     if request.method == 'POST':
         if form.validate_on_submit():
-            usuario = g.user.username             #Nombre del usuario en la session
+            usuario = g.user[1]            #Nombre del usuario en la session
             titulo_img = form.titulo_img.data
             etiq_img = form.etiq_img.data
             archivo = request.files['file']
@@ -222,15 +222,16 @@ def subirimagen():
                 return render_template('subirimagen.html', form = form)
 
             if archivo and allowed_file(archivo.filename):   #Si existe el archivo y tiene extension permitida
-                archivo = secure_filename(archivo.filename)
-                path_archivo = os.path.join(app.config['UPLOAD_FOLDER'], archivo)
-                file.save(path_archivo)
+                archivo_seguro = secure_filename(archivo.filename)
+                path_archivo = os.path.join(app.config['UPLOAD_FOLDER'], archivo_seguro)
+                
                 #Si la imagen ya existe en la BD
                 if db.execute( 'SELECT url FROM imagenes WHERE url = ?', (path_archivo,) ).fetchone() is not None:
                     error = 'La imagen ya existe en la base de datos, pruebe con un nombre diferente'
                     flash( error )
                     return render_template( 'subirimagen.html', form=form)
                 else:
+                    archivo.save(os.path.join(app.config['UPLOAD_FOLDER'],archivo.filename))   #Se graba en la carpeta
                     db.execute(     #Ejecucion del query
                     'INSERT INTO imagenes (url, autor, titulo, fk_usuario) VALUES (?,?,?,?)',
                     (path_archivo, usuario, titulo_img, usuario) )
