@@ -161,7 +161,8 @@ def enviar_mensaje(email=None):
         recipients = [email],
         body = 'Ingresa al siguiente link para restablecer tu contraseña: http://127.0.0.1:5000/cambiaPass'
     )
-    return 'Mensaje enviado'
+    flash('Se ha enviado un correo para cambiar tu contrasena')
+    return redirect(url_for('login'))
 
 
 
@@ -175,7 +176,7 @@ def cambiaPass():
         confirmar = form.confirmar.data
 
         db.execute(
-            'UPDATE usuarios SET password = ? WHERE email = ?', (contrasena, email)
+            'UPDATE usuarios SET password = ? WHERE email = ?', (generate_password_hash(contrasena), email)
         )
         db.commit()
 
