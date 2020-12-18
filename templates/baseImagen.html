@@ -16,13 +16,15 @@
             </nav>
         </div>
     </section>
-    
-    {% block content %}{% endblock %}
 
-    <footer class="barra-footer">
+    {% for message in get_flashed_messages() %}
+    <div class="flash">{{ message }}</div>
+    {% endfor %}
+    {% block content %}{% endblock %}
+    
+    <footer class="barra-header">
         <p class="copyright-text"> Copyright &copy; 2017 All Rights Reserved by VisageImage </p>
     </footer>
-    
 </body>
 
 </html>

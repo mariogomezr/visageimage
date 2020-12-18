@@ -1,21 +1,28 @@
+{% extends 'baseImagen.html' %}
 <!DOCTYPE html>
 <html lang="en">
+
+{% block header %}
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title> 
     <link rel="stylesheet" href="{{ url_for('static', filename = 'css/bootstrap.css') }}">
-    <link rel="stylesheet" type="text/css" href="/static/css/estiloVerImagen.css"/>   
+    <link rel="stylesheet" type="text/css" href="/static/css/estiloVerImagen.css"/>  
+    <script type="text/javascript" src="../static/js/llamarimagen.js"></script> 
 </head>
-<body>
-    <div style="width: 65%; margin-left: 27%; margin-top: 3%;">
+{% endblock %}
+
+{% block content %}
+<body class="principal" onload="load2();">
+    <div style="width: 65%; margin-left: 15%; margin-top: 3%;">
         <table>
             <tr>
-                <td><img class="imagenModificar" src='../../../static/img/paisaje.jpg'></td>
+                <td><img class="imagenModificar" id= "imagenPrincipal2" src='../../../static/img/paisaje.jpg'></td>
                 <td>
-                    <input type="text" placeholder="Nombre imagen" style='height: 30px; width: 300px; margin-top: 15px; border-radius: 3px;'>
+                    <input id="nombrePrincipal2" placeholder="Nombre imagen" style='height: 30px; width: 300px; margin-top: 15px; border-radius: 3px;'/>
                     <br>
-                    <input type="text" placeholder="Etiqueta imagen" style='height: 30px; width: 300px; margin-top: 15px; border-radius: 3px;'>
+                    <input type="text" placeholder="Etiqueta imagen" style='height: 30px; width: 300px; margin-top: 15px; border-radius: 3px;'/>
                     <br>
                     <br>
                     <label for="campoRadioPublica"> Pública </label>
@@ -34,4 +41,6 @@
         </table>
     </div>
 </body>
+{% endblock %}
+
 </html>
