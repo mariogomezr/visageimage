@@ -6,6 +6,7 @@
     <title>Perfil | VisageImage</title> 
     <link rel="stylesheet" href="{{ url_for('static', filename = 'css/estilosPerfil.css') }}" >
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <script type="text/javascript" src="../static/js/llamarimagen.js"></script>
 </head>
 <body>
         <header class="header" >
@@ -52,14 +53,15 @@
         </ul>
     </div>
     <div class="contenedor-imagenes">
-        <img src="https://images.unsplash.com/photo-1505784045224-1247b2b29cf3?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=ec2bdc92a9687b6af5089b335691830e&auto=format&fit=crop&w=750&q=80" class="rounded"> 
+        <a href="vistaModificar" target = "_self">
+            <img src="https://images.unsplash.com/photo-1505784045224-1247b2b29cf3?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=ec2bdc92a9687b6af5089b335691830e&auto=format&fit=crop&w=750&q=80" class="rounded" title="Steps in the city" onclick="guardar_src2(this.src); guardar_nombre2(this.title);"> 
 
-        <img src="https://images.unsplash.com/photo-1524498250077-390f9e378fc0?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=83079913579babb9d2c94a5941b2e69d&auto=format&fit=crop&w=751&q=80" class="rounded">
-          
-        <img src="https://static.t13.cl/images/original/2019/05/1557689182-goku.jpg" alt="rounded">
-        
-        <img src="https://static.t13.cl/images/original/2019/05/1557689182-goku.jpg" alt="rounded">
-  					  
+            <img src="https://images.unsplash.com/photo-1524498250077-390f9e378fc0?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=83079913579babb9d2c94a5941b2e69d&auto=format&fit=crop&w=751&q=80" class="rounded" title="Big bag" onclick="guardar_src2(this.src); guardar_nombre2(this.title);">
+            
+            <img src="https://static.t13.cl/images/original/2019/05/1557689182-goku.jpg" alt="rounded" title="Goku" onclick="guardar_src2(this.src); guardar_nombre2(this.title);">
+            
+            <img src="https://static.t13.cl/images/original/2019/05/1557689182-goku.jpg" alt="rounded" title="Goku" onclick="guardar_src2(this.src); guardar_nombre2(this.title);">
+        </a>			  
     </div>
 </body> 
 </html> 

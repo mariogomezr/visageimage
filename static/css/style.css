@@ -112,17 +112,3 @@
   }
 }
 
-
-.barra-footer {
-  clear: both;
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  display: flex;
-  justify-content: space-around;
-  padding-top: 0.3rem;
-  margin: 0 auto 0 auto;
-  align-items: center;
-  box-shadow: 0 4px 18px 0 rgba(0,0,0,.12), 0 7px 10px -5px rgba(0,0,0,.15)
-}
-
