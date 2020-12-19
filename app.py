@@ -213,7 +213,10 @@ def subirimagen():
         if form.validate_on_submit():
             usuario = g.user[1]            #Nombre del usuario en la session
             titulo_img = form.titulo_img.data
-            etiq_img = form.etiq_img.data
+            etiq_img = form.etiq_img.data.split()
+            for etiqueta in etiq_img:
+                pass
+
             archivo = request.files['file']
             db = get_db()
             print('Ingreso al metodo subirimagen POST')
