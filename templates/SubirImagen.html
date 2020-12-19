@@ -1,6 +1,8 @@
+{% extends 'baseImagen.html' %}
 <!DOCTYPE html>
 <html lang="en">
 
+{% block header %}
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=, initial-scale=1.0">
@@ -8,10 +10,11 @@
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename = 'css/edwstilos.css') }}">
     <!--<script type="text/javascript" src="../JavaScript/fotos_en_pagina.js"> -->
     </script>
-
 </head>
+{% endblock %}
 
-<body>
+{% block content %}
+<body class="cuerpo">
     {% for message in get_flashed_messages() %}
     <div class="flash">{{ message }}</div>
     {% endfor %}
@@ -22,7 +25,6 @@
                 <h1 class="titulos">Nueva imagen</h1>
                 {{ form.hidden_tag() }}
                 <h2 class="titulos">Asigna un titulo a tu imagen *</h2>
-                {{ form.titulo_img.label }}
                 {{ form.titulo_img(size = 45, placeholder="Elige un nombre para tu imagen*")}}
                 {% for error in form.titulo_img.errors %}
                 <span style="color: red;">{{ error }}</span>
@@ -30,7 +32,6 @@
             </div>
             <div>
                 <h2 class="titulos"> Asigna una etiqueta*</h2>
-                {{ form.etiq_img.label }}
                 {{ form.etiq_img(size = 45, placeholder="Elige una etiqueta para tu imagen*")}}
                 {% for error in form.etiq_img.errors %}
                 <span style="color: red;">{{ error }}</span>
@@ -38,16 +39,19 @@
             </div>
             <div class="image-upload">
                 <label for="file">
-                    <img src="../static/img/subir_nube.png" width="600" height="270" style="cursor:pointer" />
+                    <img id="iconoNube" src="../static/img/subir_nube.png" width="600" height="270" style="cursor:pointer" />
                 </label>
                 <input id="file" type="file" name = "file" />
             </div>
 
             <br>
-            <input id="Cancelar" type="button" value="Cancelar" class="escandal">
+            <a href="perfil" target = "_self">
+                <input id="Cancelar" type="button" value="Cancelar" class="escandal">
+            </a>
             <input id="Guardar" type="submit" value="Guardar" class="escandal">
         </form>
     </section>
 </body>
+{% endblock %}
 
 </html>

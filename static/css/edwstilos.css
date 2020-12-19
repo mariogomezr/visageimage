@@ -10,14 +10,13 @@
 .image-upload>input {
     display: none;
   }
-body{
-    display: flex;
-    justify-content: center;
-    background-image: url("../img/fondoOlvidaPass.jpg");
+.cuerpo{
+    text-align: center;
+    background-image: url("../img/fondoVerImagen.png");
     background-size: 100%;    
 }
 
-body img{
+#iconoNube{
     width: 200px;
     height: auto;
     border-radius: 10px;

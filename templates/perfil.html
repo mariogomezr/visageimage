@@ -1,5 +1,9 @@
+{% extends 'baseImagen.html' %}
+
 <!DOCTYPE html>
 <html lang="es">
+
+{% block header %}
 <head>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -8,19 +12,10 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
     <script type="text/javascript" src="../static/js/llamarimagen.js"></script>
 </head>
+{% endblock %}
+
+{% block content %}
 <body>
-        <header class="header" >
-            <a href="{{ url_for('index') }}"><img src="../../../static/img/visageimage-cortada.jpg" /></a>
-            
-            <div class="botones-inicio">
-                <nav>
-                    <ul class="redicc">
-                        <li class="active2"><a href="{{ url_for('index') }}">Home</a></li>
-                        <li class="active2"><a href="{{ url_for('nosotros')}}">Nosotros</a></li>
-                    </ul>
-                </nav> 
-            </div> 
-        </header>
     </div>
     <div class="fotoPerfil">
       <img src="../../../static/img/icono-perfil.jpg" alt="fotoPerfil" >
@@ -36,17 +31,6 @@
                 <div class="submenu-1">
                     <ul>
                         <li><a href="{{ url_for('subirimagen')}}">Subir Imagen</a></li>
-                        <li><a href="#">borrar imagen</a></li>
-                        <li><a href="{{ url_for('vistaModificar') }}">editar imagen</a></li>
-                    </ul>
-                </div>
-            </li>
-            <li class="active"><i class="fa fa-cog" aria-hidden="true"></i><a href="#">configuracion</a>
-                <div class="submenu-2">
-                    <ul>
-                        <li><a href="#">editar perfil</a></li>
-                        <li><a href="#">opcion2</a></li>
-                        <li><a href="#">cerrar sesion</a></li>
                     </ul>
                 </div>
             </li>
@@ -64,4 +48,6 @@
         </a>			  
     </div>
 </body> 
+{% endblock %}
+
 </html> 
