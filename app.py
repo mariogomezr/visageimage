@@ -67,7 +67,7 @@ def index():
     db = get_db()
     lista = []
 
-    for img in db.execute( 'SELECT url, titulo FROM imagenes' ):
+    for img in db.execute( 'SELECT url, titulo FROM imagenes LIMIT 9' ):
         lista.append([img[0],img[1]])
 
     return render_template('index.html', lista=lista)

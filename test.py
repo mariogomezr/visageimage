@@ -1,8 +1,5 @@
-import sqlite3
+for i in range(0,3):
+    print (i)
 
-db = sqlite3.connect("visageimage.db")
-print(db.execute('SELECT pk_id_img FROM IMAGENES  WHERE URL = ?', (r'static\uploaded_img\cacahuate.jpg',)).fetchone()[0]) 
-
-lista = []
-for i in lista:
-    print(i)
+for i in range(3,6):
+    print (i)

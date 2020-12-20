@@ -1,64 +1,66 @@
 {% extends 'base.html' %}
 <!DOCTYPE html>
 <html lang="en">
-    
-    {% block header %}
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VisageImage</title>
-    <link rel="stylesheet" href="/static/css/normalize.css">
-    <link rel="stylesheet" href="{{ url_for('static', filename = 'css/style.css') }}">
-    <script src="https://kit.fontawesome.com/16e7301bc6.js" crossorigin="anonymous"></script>
-    <script type="text/javascript" src="../static/js/llamarimagen.js"></script>
-    {% endblock %}
-            
-    {% block content %}
-    <section>
-            <div class="contenedor-buscarima">
-                <div class="cont-imgbuscar">
-                    <h1>Tu sitio web para compartir, descargar y apoyar a los talentos digitales.</h1>
-                    <a href="">
-                        <img class="contimg" src="/static/img/visageimage.png" alt="Logo VisageImage" >
-                     </a>
-                    <form class="formSearch">
-                       <button class="boton-buscar"><i class="fas fa-search" onclick="" aria-hidden="true"></i></button>
-                       <input class="form-control" id="buscar" type="text" placeholder="Search" size="50" aria-label="Search">
-                    </form>
-                </div>
-            </div>
-    </section>
-    
-    <section>
-        <!--- <div class="contenedor-imagenes">
-            <a href="verImagen" target = "_self">
-                <img src="{{ lista[0][0] }}" title="{{ lista[0][1] }}" onclick="guardar_src2(this.src); guardar_nombre2(this.title);">
-            </a>			  
-        </div>--->
-        <div class="row">
-            <div class="column">
-                <a href="verImagen" target = "_self">
-                    <img src="{{ lista[-1][0] }}" title="{{ lista[-1][1] }}" onclick="guardar_src(this.src); guardar_nombre(this.title);">
-                    <img src="{{ lista[-4][0] }}" title="{{ lista[-4][1] }}" onclick="guardar_src(this.src); guardar_nombre(this.title);">
-                    <img src="{{ lista[-7][0] }}" title="{{ lista[-7][1] }}" onclick="guardar_src(this.src); guardar_nombre(this.title);">
-                </a>
-            </div>
-            <div class="column">
-                <a href="verImagen" target = "_self">
-                    <img src="{{ lista[-2][0] }}" title="{{ lista[-2][1] }}" onclick="guardar_src(this.src); guardar_nombre(this.title);">
-                    <img src="{{ lista[-5][0] }}" title="{{ lista[-5][1] }}" onclick="guardar_src(this.src); guardar_nombre(this.title);">
-                    <img src="{{ lista[-8][0] }}" title="{{ lista[-8][1] }}" onclick="guardar_src(this.src); guardar_nombre(this.title);">
-                </a>
-            </div>
-            <div class="column">
-                <a href="verImagen">
-                    <img src="{{ lista[-3][0] }}" title="{{ lista[-3][1] }}" onclick="guardar_src(this.src); guardar_nombre(this.title);">
-                    <img src="{{ lista[-6][0] }}" title="{{ lista[-6][1] }}" onclick="guardar_src(this.src); guardar_nombre(this.title);">
-                    <img src="{{ lista[-9][0] }}" title="{{ lista[-9][1] }}" onclick="guardar_src(this.src); guardar_nombre(this.title);">
-                </a>
-            </div>
-        </div>
-    </section>
-    {% endblock %}
-    
-</html>
 
+{% block header %}
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VisageImage</title>
+<link rel="stylesheet" href="/static/css/normalize.css">
+<link rel="stylesheet" href="{{ url_for('static', filename = 'css/style.css') }}">
+<script src="https://kit.fontawesome.com/16e7301bc6.js" crossorigin="anonymous"></script>
+<script type="text/javascript" src="../static/js/llamarimagen.js"></script>
+{% endblock %}
+
+{% block content %}
+<section>
+    <div class="contenedor-buscarima">
+        <div class="cont-imgbuscar">
+            <h1>Tu sitio web para compartir, descargar y apoyar a los talentos digitales.</h1>
+            
+            <img class="contimg" src="/static/img/visageimage.png" alt="Logo VisageImage">
+            
+            <form class="formSearch">
+                <button class="boton-buscar"><i class="fas fa-search" onclick="" aria-hidden="true"></i></button>
+                <input class="form-control" id="buscar" type="text" placeholder="Search" size="50" aria-label="Search">
+            </form>
+        </div>
+    </div>
+</section>
+
+<section>
+    <!--- <div class="contenedor-imagenes">
+                <a href="verImagen" target = "_self">
+                    <img src="{{ lista[0][0] }}" title="{{ lista[0][1] }}" onclick="guardar_src2(this.src); guardar_nombre2(this.title);">
+                </a>			  
+            </div>--->
+    <div class="row">
+        <div class="column">
+            <a href="verImagen" target="_self">
+                {% for i in range(0,3) %}
+                <img src="{{ lista[i][0] }}" title="{{ lista[i][1] }}"
+                    onclick="guardar_src(this.src); guardar_nombre(this.title);">
+                {% endfor %}
+            </a>
+        </div>
+        <div class="column">
+            <a href="verImagen" target="_self">
+                {% for i in range(3,6) %}
+                <img src="{{ lista[i][0] }}" title="{{ lista[i][1] }}"
+                    onclick="guardar_src(this.src); guardar_nombre(this.title);">
+                {% endfor %}
+            </a>
+        </div>
+        <div class="column">
+            <a href="verImagen">
+                {% for i in range(6,9) %}
+                <img src="{{ lista[i][0] }}" title="{{ lista[i][1] }}"
+                    onclick="guardar_src(this.src); guardar_nombre(this.title);">
+                {% endfor %}
+            </a>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+</html>

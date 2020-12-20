@@ -1,3 +1,6 @@
+*{
+
+}
 
 .barra-header {
     display: flex;
@@ -12,12 +15,17 @@
 .contenedor-buscarima{
     background-image: url(/static/img/fondoPrincipal.jpg);
     margin: 0 auto 0 auto;
-    min-height: 40rem;
+    min-height: 70vh;
     background-position: center center;
     background-size: cover;
     display: flex;
     align-items: center;
     position: relative;
+}
+
+.contenedor-buscarima * {
+  padding-top: 10px;
+  padding-bottom: 10px ;
 }
 
 .cont-imgbuscar{
@@ -37,7 +45,8 @@
 
 .formSearch{
   display: inline-block;
-  text-align: center;
+  text-align: left;
+  align-items: left;
 }
 
 .boton-buscar {
