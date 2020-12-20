@@ -3,37 +3,35 @@
 <html lang="en">
 
 {% block header %}
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title> 
-    <link rel="stylesheet" href="{{ url_for('static', filename = 'css/bootstrap.css') }}">
-    <link rel="stylesheet" type="text/css" href="/static/css/estiloVerImagen.css"/>  
+    <title>Modificar Imagen | Visage Image</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../static/css/estiloVerImagen.css">
     <script type="text/javascript" src="../static/js/llamarimagen.js"></script> 
 </head>
 {% endblock %}
 
 {% block content %}
 <body class="principal" onload="load2();">
-    <div style="width: 65%; margin-left: 20%; margin-top: 7%;">
-        <table>
-            <tr>
-                <td><img class="imagenModificar" id= "imagenPrincipal2" src='../../../static/img/paisaje.jpg'></td>
-                <td>
-                    <input id="nombrePrincipal2" placeholder="Nombre imagen" style='height: 30px; width: 300px; margin-top: 15px; border-radius: 3px;'/>
-                    <br>
-                    <input type="text" placeholder="Etiqueta imagen" style='height: 30px; width: 300px; margin-top: 15px; border-radius: 3px;'/>
-                </td>
-            </tr>
-            <tr>
-                <td><input type='file' id="img" name="img"></td>
-                <td>
-                    <input type="submit" class="btn btn-success" name='ACTUALIZAR' value="Actualizar">
-                    <input type="submit" class="btn btn-danger" name='ELIMINAR' value="Eliminar">
-                </td>
-            </tr>
-        </table>
-    </div>
+    <form class=form action="" method="POST">
+        <div class="input_elements">
+            <h2 class="input">Modifica o Elimina tu imagen</h1>
+                <input type="text" class="input" name="input_titulo" id="nombrePrincipal2" placeholder="Ingrese el titulo">
+
+                <input type="text" class="input" name="input_etiqueta" id="input_etiqueta"
+                    placeholder="Ingrese las etiquetas">
+
+                <input type="file" name="img" id="img">
+
+                <img class=img  id="nombrePrincipal2" src="../static/img/dumbo-4582501_640.jpg" alt="">
+                <input type="submit" class="buton" value="Actualizar">
+                <input type="submit" class="buton" value="Eliminar">
+        </div>
+    </form>
 </body>
 {% endblock %}
 
