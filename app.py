@@ -1,4 +1,4 @@
-from forms import CambiaPassForm, LoginForm, OlvidaPassForm, RegistroForm, subirimagenForm
+from forms import CambiaPassForm, LoginForm, OlvidaPassForm, RegistroForm, subirimagenForm, ModificarForm
 from flask import Flask, render_template, flash, request, redirect, url_for, jsonify, session, send_file, current_app, g
 from flask_mail import Mail, Message
 from flask_wtf import form
@@ -64,7 +64,13 @@ def allowed_file(filename):         #Funcion que permite verificar las extension
 
 @app.route('/', methods=['GET'])
 def index():
-    return render_template('index.html')
+    db = get_db()
+    lista = []
+
+    for img in db.execute( 'SELECT url, titulo FROM imagenes LIMIT 9' ):
+        lista.append([img[0],img[1]])
+
+    return render_template('index.html', lista=lista)
 
 
 @app.route('/login/', methods=['GET', 'POST'])
@@ -193,30 +199,50 @@ def nosotros():
     return render_template('Nosotros.html')
 
 
-@app.route('/vistaModificar', methods=['GET', 'POST'])
+@app.route('/modificar_imagen', methods=['GET', 'POST'])
 def vistaModificar():
-    return render_template('vistaModificar.html')
+    form = ModificarForm()
+    if request.method == 'POST':
+        if form.validate():
+            titulo = form.titulo.data
+            etiquetas = form.etiquetas.data
+            file = request.files['file']
+            if request.form['btn_actualizar'] == 'Actualizar':  #Si se unde el boton de actualizar
+                pass 
+            if request.form['btn_Eliminar'] == 'Eliminar':      #si se unde el boton de eliminar
+                pass
+        
+
+
+    return render_template('vistaModificar.html', form = form)
 
 
 # Dejar en POST para que cuando se inicie sesión se redireccione al perfil
 @login_required
 @app.route('/perfil', methods=['GET', 'POST'])
 def perfil():
-    return render_template('perfil.html')
+    db = get_db()
+    nombreUsuario = g.user[1]
+    lista = []
+
+    for img in db.execute( 'SELECT url, titulo FROM imagenes WHERE autor = ? ', (str(nombreUsuario),) ):
+        lista.append([img[0],img[1]])
+    
+    #print(lista)
+
+    return render_template('perfil.html', lista=lista, nombreUsuario=nombreUsuario)
 
 
 @login_required
 @app.route('/subirimagen', methods=['GET', 'POST'])
 def subirimagen():
     form = subirimagenForm()
+    
     if request.method == 'POST':
         if form.validate_on_submit():
             usuario = g.user[1]            #Nombre del usuario en la session
             titulo_img = form.titulo_img.data
-            etiq_img = form.etiq_img.data.split()
-            for etiqueta in etiq_img:
-                pass
-
+            etiq_img = form.etiq_img.data.split()  #split por espacio ETIQUETAS
             archivo = request.files['file']
             db = get_db()
             print('Ingreso al metodo subirimagen POST')
@@ -240,7 +266,19 @@ def subirimagen():
                     'INSERT INTO imagenes (url, autor, titulo, fk_usuario) VALUES (?,?,?,?)',
                     (path_archivo, usuario, titulo_img, usuario) )
                     db.commit()     #Chequear informacion en la BD
+
+                     #Metodo para subir las etiquetas
+                    id_img = db.execute('SELECT pk_id_img FROM IMAGENES  WHERE URL = ?', (path_archivo,)).fetchone()[0]  #extraer el id img de
+                    for etiqueta in etiq_img:           #por cada etiqueta
+                        if  db.execute('SELECT * FROM tag WHERE tag = ?', (etiqueta,)).fetchone() is None: #chequeo que la etiqueta no exista
+                            db.execute('INSERT INTO tag(tag) VALUES (?)', (etiqueta,))    
+                            db.commit()                       #se crea la etiqueta
+                        etiq = db.execute('SELECT id_tag from tag where tag = ?',(etiqueta,)).fetchone()[0]   #'id_tag': valor
+                        db.execute('INSERT INTO tag_img(fk_id_img, fk_id_tag) values (?,?)', (id_img, etiq))        #Se agregan los datos a tag_img
+                        db.commit() 
+
                     return redirect(url_for('perfil'))  
+               
 
     return render_template('SubirImagen.html', form = form)
 
