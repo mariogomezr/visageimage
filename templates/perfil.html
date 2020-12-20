@@ -36,7 +36,7 @@
         </ul>
     </div>
     <div class="contenedor-imagenes">
-        <a href="vistaModificar" target = "_self">
+        <a href="modificar_imagen" target = "_self">
             {% for lista in lista %}<img src="{{ lista[0] }}" title="{{ lista[1] }}" onclick="guardar_src2(this.src); guardar_nombre2(this.title);">{% endfor %}
         </a>			  
     </div>

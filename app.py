@@ -214,7 +214,7 @@ def vistaModificar():
         
 
 
-    return render_template('vistaModificar.html')
+    return render_template('vistaModificar.html', form = form)
 
 
 # Dejar en POST para que cuando se inicie sesión se redireccione al perfil

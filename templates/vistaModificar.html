@@ -22,12 +22,12 @@
         <div class="input_elements">
             {{ form.hidden_tag() }}
             <h2 class="input">Modifica o Elimina tu imagen</h1>
-                {{ form.titulo(class_="input", id="nombrePrincipal2",placeholder("Ingrese el titulo")) }} <br>
+                {{ form.titulo(class_="input", id_="nombrePrincipal2",placeholder_="Ingrese el titulo") }} <br>
                 {% for error in form.titulo.errors %}
                 <span style="color: red;">{{ error }}</span>
                 {% endfor %}
                 <!-- <input type="text" class="input" name="input_titulo" id="nombrePrincipal2" placeholder="Ingrese el titulo"> -->
-                {{ form.etiquetas(class_="input", id="input_etiqueta",placeholder("Ingrese las etiquetas")) }} <br>
+                {{ form.etiquetas(class_="input", id_="input_etiqueta",placeholder_= "Ingrese las etiquetas") }} <br>
                 {% for error in form.etiquetas.errors %}
                 <span style="color: red;">{{ error }}</span>
                 {% endfor %}
@@ -35,7 +35,7 @@
                     placeholder="Ingrese las etiquetas"> -->
                 <input type="file" name="file" id="file">
 
-                <img class=img id="nombrePrincipal2" src="../static/img/dumbo-4582501_640.jpg" alt="">
+                <img class="img" id="imagenPrincipal2" src="../static/img/dumbo-4582501_640.jpg" alt="">
                 <input type="submit" class="buton" name = "btn_actualizar" id="btn_actualizar" value="Actualizar">
                 <input type="submit" class="buton" name="btn_Eliminar" id="btn_Eliminar" value="Eliminar">
         </div>

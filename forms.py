@@ -12,7 +12,7 @@ class LoginForm (FlaskForm):
 class ModificarForm (FlaskForm):
     titulo = StringField('', validators=[DataRequired(), Length(max=64)])
     etiquetas = StringField('', validators=[DataRequired(), ])
-    file = FileField('file', validators= validators.optional() )
+    file = FileField('file')
     submit_actualizar = SubmitField('Actualizar')
     submit_eliminar = SubmitField('Eliminar')
 
