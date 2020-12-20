@@ -11,25 +11,33 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../static/css/estiloVerImagen.css">
-    <script type="text/javascript" src="../static/js/llamarimagen.js"></script> 
+    <script type="text/javascript" src="../static/js/llamarimagen.js"></script>
 </head>
 {% endblock %}
 
 {% block content %}
+
 <body class="principal" onload="load2();">
     <form class=form action="" method="POST">
         <div class="input_elements">
+            {{ form.hidden_tag() }}
             <h2 class="input">Modifica o Elimina tu imagen</h1>
-                <input type="text" class="input" name="input_titulo" id="nombrePrincipal2" placeholder="Ingrese el titulo">
+                {{ form.titulo(class_="input", id="nombrePrincipal2",placeholder("Ingrese el titulo")) }} <br>
+                {% for error in form.titulo.errors %}
+                <span style="color: red;">{{ error }}</span>
+                {% endfor %}
+                <!-- <input type="text" class="input" name="input_titulo" id="nombrePrincipal2" placeholder="Ingrese el titulo"> -->
+                {{ form.etiquetas(class_="input", id="input_etiqueta",placeholder("Ingrese las etiquetas")) }} <br>
+                {% for error in form.etiquetas.errors %}
+                <span style="color: red;">{{ error }}</span>
+                {% endfor %}
+                <!--  <input type="text" class="input" name="input_etiqueta" id="input_etiqueta"
+                    placeholder="Ingrese las etiquetas"> -->
+                <input type="file" name="file" id="file">
 
-                <input type="text" class="input" name="input_etiqueta" id="input_etiqueta"
-                    placeholder="Ingrese las etiquetas">
-
-                <input type="file" name="img" id="img">
-
-                <img class=img  id="nombrePrincipal2" src="../static/img/dumbo-4582501_640.jpg" alt="">
-                <input type="submit" class="buton" value="Actualizar">
-                <input type="submit" class="buton" value="Eliminar">
+                <img class=img id="nombrePrincipal2" src="../static/img/dumbo-4582501_640.jpg" alt="">
+                <input type="submit" class="buton" name = "btn_actualizar" id="btn_actualizar" value="Actualizar">
+                <input type="submit" class="buton" name="btn_Eliminar" id="btn_Eliminar" value="Eliminar">
         </div>
     </form>
 </body>

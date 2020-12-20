@@ -7,8 +7,14 @@ from wtforms.validators import DataRequired, Email, EqualTo, Length
 class LoginForm (FlaskForm):
     usuario = StringField('Usuario', validators=[DataRequired(), Length(max=64)])
     contrasena = PasswordField('Contraseña ', validators=[DataRequired(), ])
-    # render_kw={"onclick": "{{ url_for('registro') }}"  esto sirve para darle una funcion cuando de click al boton
     submit = SubmitField('Iniciar sesión')
+
+class ModificarForm (FlaskForm):
+    titulo = StringField('', validators=[DataRequired(), Length(max=64)])
+    etiquetas = StringField('', validators=[DataRequired(), ])
+    file = FileField('file', validators= validators.optional() )
+    submit_actualizar = SubmitField('Actualizar')
+    submit_eliminar = SubmitField('Eliminar')
 
 
 class RegistroForm(FlaskForm):

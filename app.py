@@ -1,4 +1,4 @@
-from forms import CambiaPassForm, LoginForm, OlvidaPassForm, RegistroForm, subirimagenForm
+from forms import CambiaPassForm, LoginForm, OlvidaPassForm, RegistroForm, subirimagenForm, ModificarForm
 from flask import Flask, render_template, flash, request, redirect, url_for, jsonify, session, send_file, current_app, g
 from flask_mail import Mail, Message
 from flask_wtf import form
@@ -199,8 +199,21 @@ def nosotros():
     return render_template('Nosotros.html')
 
 
-@app.route('/vistaModificar', methods=['GET', 'POST'])
+@app.route('/modificar_imagen', methods=['GET', 'POST'])
 def vistaModificar():
+    form = ModificarForm()
+    if request.method == 'POST':
+        if form.validate():
+            titulo = form.titulo.data
+            etiquetas = form.etiquetas.data
+            file = request.files['file']
+            if request.form['btn_actualizar'] == 'Actualizar':  #Si se unde el boton de actualizar
+                pass 
+            if request.form['btn_Eliminar'] == 'Eliminar':      #si se unde el boton de eliminar
+                pass
+        
+
+
     return render_template('vistaModificar.html')
 
 
