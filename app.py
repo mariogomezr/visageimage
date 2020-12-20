@@ -64,7 +64,13 @@ def allowed_file(filename):         #Funcion que permite verificar las extension
 
 @app.route('/', methods=['GET'])
 def index():
-    return render_template('index.html')
+    db = get_db()
+    lista = []
+
+    for img in db.execute( 'SELECT url, titulo FROM imagenes' ):
+        lista.append([img[0],img[1]])
+
+    return render_template('index.html', lista=lista)
 
 
 @app.route('/login/', methods=['GET', 'POST'])
@@ -202,7 +208,16 @@ def vistaModificar():
 @login_required
 @app.route('/perfil', methods=['GET', 'POST'])
 def perfil():
-    return render_template('perfil.html')
+    db = get_db()
+    nombreUsuario = g.user[1]
+    lista = []
+
+    for img in db.execute( 'SELECT url, titulo FROM imagenes WHERE autor = ? ', (str(nombreUsuario),) ):
+        lista.append([img[0],img[1]])
+    
+    #print(lista)
+
+    return render_template('perfil.html', lista=lista, nombreUsuario=nombreUsuario)
 
 
 @login_required

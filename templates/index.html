@@ -29,26 +29,31 @@
     </section>
     
     <section>
+        <!--- <div class="contenedor-imagenes">
+            <a href="verImagen" target = "_self">
+                <img src="{{ lista[0][0] }}" title="{{ lista[0][1] }}" onclick="guardar_src2(this.src); guardar_nombre2(this.title);">
+            </a>			  
+        </div>--->
         <div class="row">
             <div class="column">
                 <a href="verImagen" target = "_self">
-                    <img src="/static/img/dumbo-4582501_640.jpg" title="Chaos in the city" onclick="guardar_src(this.src); guardar_nombre(this.title);" alt="" srcset="">
-                    <img src="/static/img/faro-5525698_640.jpg" title="Magical sunset at sea" onclick="guardar_src(this.src); guardar_nombre(this.title);" alt="" srcset="">
-                    <img src="/static/img/fire-4515924_640.jpg" title="Burning fire" onclick="guardar_src(this.src); guardar_nombre(this.title);" alt="" srcset="">
+                    <img src="{{ lista[-1][0] }}" title="{{ lista[-1][1] }}" onclick="guardar_src(this.src); guardar_nombre(this.title);">
+                    <img src="{{ lista[-4][0] }}" title="{{ lista[-4][1] }}" onclick="guardar_src(this.src); guardar_nombre(this.title);">
+                    <img src="{{ lista[-7][0] }}" title="{{ lista[-7][1] }}" onclick="guardar_src(this.src); guardar_nombre(this.title);">
                 </a>
             </div>
             <div class="column">
                 <a href="verImagen" target = "_self">
-                    <img src="/static/img/geese-5568976_640.jpg" title="Friendly ducks" onclick="guardar_src(this.src); guardar_nombre(this.title);" alt="" srcset="">
-                    <img src="/static/img/hot-air-balloons-4561263_640.jpg" title="Balloons in Capadoccia" onclick="guardar_src(this.src); guardar_nombre(this.title);" alt="" srcset="">
-                    <img src="/static/img/little-girl-5785590_640.jpg" title="Curiosity" onclick="guardar_src(this.src); guardar_nombre(this.title);" alt="" srcset="">
+                    <img src="{{ lista[-2][0] }}" title="{{ lista[-2][1] }}" onclick="guardar_src(this.src); guardar_nombre(this.title);">
+                    <img src="{{ lista[-5][0] }}" title="{{ lista[-5][1] }}" onclick="guardar_src(this.src); guardar_nombre(this.title);">
+                    <img src="{{ lista[-8][0] }}" title="{{ lista[-8][1] }}" onclick="guardar_src(this.src); guardar_nombre(this.title);">
                 </a>
             </div>
             <div class="column">
                 <a href="verImagen">
-                    <img src="/static/img/sea-5621174_640.jpg" title="Peaceful horizon" onclick="guardar_src(this.src); guardar_nombre(this.title);" alt="" srcset="">
-                    <img src="/static/img/stars-5442598_640.jpg" title="Starlit night" onclick="guardar_src(this.src); guardar_nombre(this.title);" alt="" srcset="">
-                    <img src="/static/img/turnstile-5623053_640.jpg" title="Endless journey" onclick="guardar_src(this.src); guardar_nombre(this.title);" alt="" srcset="">
+                    <img src="{{ lista[-3][0] }}" title="{{ lista[-3][1] }}" onclick="guardar_src(this.src); guardar_nombre(this.title);">
+                    <img src="{{ lista[-6][0] }}" title="{{ lista[-6][1] }}" onclick="guardar_src(this.src); guardar_nombre(this.title);">
+                    <img src="{{ lista[-9][0] }}" title="{{ lista[-9][1] }}" onclick="guardar_src(this.src); guardar_nombre(this.title);">
                 </a>
             </div>
         </div>
