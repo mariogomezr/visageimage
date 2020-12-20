@@ -19,7 +19,9 @@ function poner_nombre() {
 }
 
 function load(){
-    document.getElementById("imagenPrincipal").src = poner_src()
+    var value = poner_src();
+    document.getElementById("imagenPrincipal").src = poner_src();
+    document.getElementById("descarga").href = value;
     document.getElementById("nombrePrincipal").innerText = poner_nombre();
 }
 

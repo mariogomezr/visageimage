@@ -21,13 +21,15 @@
     <form class=form action="" method="POST">
         <div class="input_elements">
             {{ form.hidden_tag() }}
-            <h2 class="input">Modifica o Elimina tu imagen</h1>
-                {{ form.titulo(class_="input", id_="nombrePrincipal2",placeholder_="Ingrese el titulo") }} <br>
+            <h2 class="input" id="titulo">Modifica o Elimina tu imagen</h1>
+                <br>
+                <br>
+                {{ form.titulo(class="input", id="nombrePrincipal2",placeholder="Ingrese el titulo") }} <br>
                 {% for error in form.titulo.errors %}
                 <span style="color: red;">{{ error }}</span>
                 {% endfor %}
                 <!-- <input type="text" class="input" name="input_titulo" id="nombrePrincipal2" placeholder="Ingrese el titulo"> -->
-                {{ form.etiquetas(class_="input", id_="input_etiqueta",placeholder_= "Ingrese las etiquetas") }} <br>
+                {{ form.etiquetas(class="input", id="input_etiqueta",placeholder= "Ingrese las etiquetas") }} <br>
                 {% for error in form.etiquetas.errors %}
                 <span style="color: red;">{{ error }}</span>
                 {% endfor %}
