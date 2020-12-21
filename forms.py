@@ -42,3 +42,7 @@ class subirimagenForm(FlaskForm):
     etiq_img = StringField('etiqueta',validators=[DataRequired()])
     file = FileField('file' )
     submit = SubmitField('Guardar')
+
+class indexForm(FlaskForm):
+    tag = StringField('tag',validators=[DataRequired()])
+    submit = SubmitField('buscar')
