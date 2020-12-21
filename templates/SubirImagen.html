@@ -37,6 +37,16 @@
                 <span style="color: red;">{{ error }}</span>
                 {% endfor %}
             </div>
+            <div>
+                <br>
+                <br>
+                {{ form.privacidad(id="privacidad") }}
+                {% for error in form.etiq_img.errors %}
+                <span style="color: red;">{{ error }}</span>
+                {% endfor %}
+                <br>
+                <br>
+            </div>
             <div class="image-upload">
                 <label for="file">
                     <img id="iconoNube" src="../static/img/subir_nube.png" width="600" height="270" style="cursor:pointer" />

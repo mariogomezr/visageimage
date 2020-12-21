@@ -68,7 +68,7 @@ def index():
     db = get_db()
     lista = []
 
-    for img in db.execute( 'select tag, titulo, url from tag t join tag_img timg on t.id_tag = timg.fk_id_tag join imagenes img on img.pk_id_img = timg.fk_id_img ORDER BY pk_id_img desc ' ):
+    for img in db.execute( 'select tag, titulo, url from tag t join tag_img timg on t.id_tag = timg.fk_id_tag join imagenes img on img.pk_id_img = timg.fk_id_img where privacidad = "publico" ' ):
         lista.append([img[0],img[1],img[2]])
     lista = np.array(lista)
     urls = set(lista[:,2])
@@ -80,7 +80,6 @@ def index():
         for i in range(len(valor)):
             string = string + "#" + str(lista[valor[i],0]) + ' '
         listaf.append([url,titulo,string])
-    print(listaf)
 
     return render_template('index.html', listaf=listaf)
 
@@ -219,14 +218,15 @@ def vistaModificar():
             titulo = form.titulo.data
             url = form.url.data
             url = url.replace('http://127.0.0.1:5000/','').replace('/','\\')
+            seleccion_privacidad = form.privacidad.data
+            print(seleccion_privacidad)
             db = get_db()
             id = db.execute("select pk_id_img from imagenes where url=?",((url),)).fetchone()
             ide = id[0]
-            print('el id es:',ide)
             if request.form['btn_actualizar'] == 'Actualizar':  #Si se presiona el boton de actualizar
                 archivo = request.files['file']
                 if archivo is None or archivo.filename == '':
-                    db.execute('UPDATE imagenes SET url = ? , titulo = ? WHERE pk_id_img = ?',(url,titulo,ide) )
+                    db.execute('UPDATE imagenes SET url = ? , titulo = ? ,  privacidad= ?  WHERE pk_id_img = ?',(url,titulo,seleccion_privacidad,ide) )
                     db.commit()
                     return redirect(url_for('perfil'))
 
@@ -247,15 +247,10 @@ def vistaModificar():
                         return redirect(url_for('perfil'))
 
             if request.form['btn_actualizar'] == 'Eliminar':      #si se presiona el boton de eliminar
-                print('paso1')
                 db.execute('delete from tag_img where fk_id_img = ?',((int(ide)),))
-                print('paso2')
                 db.commit()
-                print('paso3')
                 db.execute('delete from imagenes where pk_id_img = ?',((int(ide)),))
-                print('paso4')
                 db.commit()
-                print('paso5')
                 return redirect(url_for('perfil'))
             
     return render_template('vistaModificar.html', form = form)
@@ -281,7 +276,6 @@ def perfil():
         for i in range(len(valor)):
             string = string + str(lista[valor[i],0]) + ' '
         listaf.append([url,titulo,string])
-    print(listaf)
 
     return render_template('perfil.html', listaf=listaf, nombreUsuario=nombreUsuario)
 
@@ -298,7 +292,6 @@ def subirimagen():
             etiq_img = form.etiq_img.data.split()  #split por espacio ETIQUETAS
             archivo = request.files['file']
             db = get_db()
-            print('Ingreso al metodo subirimagen POST')
 
             if archivo is None or archivo == '':
                 flash('Ingrese un archivo con extension .jpg o .png')
@@ -314,10 +307,12 @@ def subirimagen():
                     flash( error )
                     return render_template( 'subirimagen.html', form=form)
                 else:
+                    seleccion_privacidad = form.privacidad.data
+                    print(seleccion_privacidad)
                     archivo.save(os.path.join(app.config['UPLOAD_FOLDER'],archivo.filename))   #Se graba en la carpeta
                     db.execute(     #Ejecucion del query
-                    'INSERT INTO imagenes (url, autor, titulo, fk_usuario) VALUES (?,?,?,?)',
-                    (path_archivo, usuario, titulo_img, usuario) )
+                    'INSERT INTO imagenes (url, autor, titulo, fk_usuario, privacidad) VALUES (?,?,?,?,?)',
+                    (path_archivo, usuario, titulo_img, usuario, seleccion_privacidad) )
                     db.commit()     #Chequear informacion en la BD
 
                      #Metodo para subir las etiquetas

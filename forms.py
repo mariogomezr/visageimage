@@ -1,5 +1,5 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, SubmitField, PasswordField, BooleanField, FileField
+from wtforms import StringField, SubmitField, PasswordField, BooleanField, FileField, RadioField
 from wtforms import validators
 from wtforms.validators import DataRequired, Email, EqualTo, Length
 
@@ -16,6 +16,8 @@ class ModificarForm (FlaskForm):
     file = FileField('file')
     submit_actualizar = SubmitField('Actualizar')
     submit_eliminar = SubmitField('Eliminar')
+    privacidad = RadioField('privacidad',choices=[('privado','Privado'),('publico','Público')])
+
 
 
 class RegistroForm(FlaskForm):
@@ -40,5 +42,6 @@ class CambiaPassForm(FlaskForm):
 class subirimagenForm(FlaskForm):
     titulo_img = StringField('tituloImagen',validators=[DataRequired()])
     etiq_img = StringField('etiqueta',validators=[DataRequired()])
+    privacidad = RadioField('privacidad',choices=[('privado','Privado'),('publico','Público')])
     file = FileField('file' )
     submit = SubmitField('Guardar')

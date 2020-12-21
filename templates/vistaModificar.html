@@ -38,6 +38,11 @@
                 <input type="file" name="file" id="file">
 
                 <img class="img" id="imagenPrincipal2" src="../static/img/dumbo-4582501_640.jpg" alt="">
+                {{ form.privacidad(id="privacidad") }}
+                {% for error in form.privacidad.errors %}
+                <span style="color: red;">{{ error }}</span>
+                {% endfor %}
+                
                 {{ form.url(class = "input", id= "url1", placeholder = "") }}
                 <input type="submit" class="buton" name = "btn_actualizar" id="btn_actualizar" value="Actualizar">
                 <input type="submit" class="buton" name="btn_actualizar" id="btn_Eliminar" value="Eliminar">
