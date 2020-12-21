@@ -7,7 +7,6 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from werkzeug.utils import secure_filename
 from db import get_db, close_db
 import numpy as np
-import posixpath
 
 #Configuracion
 
@@ -80,7 +79,6 @@ def index():
         titulo = lista[valor[0],1]
         for i in range(len(valor)):
             string = string + "#" + str(lista[valor[i],0]) + ' '
-        url.replace(os.sep, ntpath.sep)
         listaf.append([url,titulo,string])
     print(listaf)
 
