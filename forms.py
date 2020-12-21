@@ -16,7 +16,7 @@ class ModificarForm (FlaskForm):
     file = FileField('file')
     submit_actualizar = SubmitField('Actualizar')
     submit_eliminar = SubmitField('Eliminar')
-    privacidad = RadioField('privacidad',choices=[('privado','Privado'),('publico','Público')])
+    privacidad = RadioField('privacidad',choices=[('privado','Privado'),('publico','Público')], default = "publico")
 
 
 

@@ -67,17 +67,17 @@ def allowed_file(filename):         #Funcion que permite verificar las extension
 def index():
     form = indexForm()
     varcontrol = 0
-    if request.method == 'POST':
-        form = indexForm()
-        tag = form.tag.data
-        lista = []
-        db = get_db()
-        imagenes_encontradas = db.execute('select tag, titulo, url from tag t join tag_img timg on t.id_tag = timg.fk_id_tag join imagenes img on img.pk_id_img = timg.fk_id_img where tag= ?', (tag,))
+    lista = []
+    listaf = []
+    db = get_db()
+
+    if request.method == 'GET':
+
+        imagenes_encontradas = db.execute('select tag, titulo, url from tag t join tag_img timg on t.id_tag = timg.fk_id_tag join imagenes img on img.pk_id_img = timg.fk_id_img where privacidad= "publico"')
         for img in imagenes_encontradas:
             lista.append([img[0],img[1],img[2]])
         lista = np.array(lista)
         urls = set(lista[:,2])
-        listaf = []
         for url in urls:
             valor = np.where(lista[:,2]==url)[0]
             string = ''
@@ -85,19 +85,19 @@ def index():
             for i in range(len(valor)):
                 string = string + "#" + str(lista[valor[i],0]) + ' '
             listaf.append([url,titulo,string])
-        return render_template('index.html', listaf= listaf, form = form, varcontrol = 1)
+        return render_template('index.html', listaf=listaf, form = form)
 
-    else:
+    if request.method == 'POST':
+        form = indexForm()
+        tag = form.tag.data
         db = get_db()
-        if varcontrol == 1:
-            lista = listaf
-        else:
-            lista = []
-            for img in db.execute( 'select tag, titulo, url from tag t join tag_img timg on t.id_tag = timg.fk_id_tag join imagenes img on img.pk_id_img = timg.fk_id_img ORDER BY pk_id_img desc ' ):
-                lista.append([img[0],img[1],img[2]])
+        imagenes_encontradas = db.execute('select tag, titulo, url from tag t join tag_img timg on t.id_tag = timg.fk_id_tag join imagenes img on img.pk_id_img = timg.fk_id_img where tag= ? and privacidad="publico" ', (tag,))
+        for img in imagenes_encontradas:
+            lista.append([img[0],img[1],img[2]])
+        if len(lista)>0:
             lista = np.array(lista)
+            print(lista)
             urls = set(lista[:,2])
-            listaf = []
             for url in urls:
                 valor = np.where(lista[:,2]==url)[0]
                 string = ''
@@ -105,20 +105,15 @@ def index():
                 for i in range(len(valor)):
                     string = string + "#" + str(lista[valor[i],0]) + ' '
                 listaf.append([url,titulo,string])
-            print(listaf)
-        return render_template('index.html', listaf=listaf, form = form)
+            return render_template('index.html', listaf= listaf, form = form, varcontrol = 1)
+
+    return render_template('index.html', listaf=listaf, form = form)
 
 @app.route('/index-search')
 def login_search(lista):
     db = get_db()
-
-<<<<<<< HEAD
     for img in db.execute( 'select tag, titulo, url from tag t join tag_img timg on t.id_tag = timg.fk_id_tag join imagenes img on img.pk_id_img = timg.fk_id_img where privacidad = "publico" ' ):
         lista.append([img[0],img[1],img[2]])
-=======
-    for img in db.execute('select tag, titulo, url from tag t join tag_img timg on t.id_tag = timg.fk_id_tag join imagenes img on img.pk_id_img = timg.fk_id_img ORDER BY pk_id_img desc '):
-        lista.append([img[0], img[1], img[2]])
->>>>>>> 85b63aeb817b8378f1b39ffce129acd501319ed6
     lista = np.array(lista)
     urls = set(lista[:, 2])
     listaf = []
@@ -127,14 +122,9 @@ def login_search(lista):
         string = ''
         titulo = lista[valor[0], 1]
         for i in range(len(valor)):
-<<<<<<< HEAD
-            string = string + "#" + str(lista[valor[i],0]) + ' '
-        listaf.append([url,titulo,string])
-=======
             string = string + "#" + str(lista[valor[i], 0]) + ' '
         listaf.append([url, titulo, string])
     print(listaf)
->>>>>>> 85b63aeb817b8378f1b39ffce129acd501319ed6
 
     return render_template('index-search.html', lista=listaf)
 
@@ -272,13 +262,10 @@ def vistaModificar():
         if form.validate_on_submit():
             titulo = form.titulo.data
             url = form.url.data
-<<<<<<< HEAD
-            url = url.replace('http://127.0.0.1:5000/','').replace('/','\\')
+            url = url.replace('http://127.0.0.1:5000/','').replace('https://54.91.130.114/', '').replace('/','\\')
             seleccion_privacidad = form.privacidad.data
             print(seleccion_privacidad)
-=======
-            url = url.replace('http://127.0.0.1:5000/','').replace('https://54.91.130.114/', '').replace('/','\\')
->>>>>>> 85b63aeb817b8378f1b39ffce129acd501319ed6
+        
             db = get_db()
             id = db.execute("select pk_id_img from imagenes where url=?",((url),)).fetchone()
             ide = id[0]
