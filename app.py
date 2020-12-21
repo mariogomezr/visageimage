@@ -210,7 +210,7 @@ def cambiaPass():
 def nosotros():
     return render_template('Nosotros.html')
 
-
+@login_required
 @app.route('/modificar_imagen', methods=['GET', 'POST'])
 def vistaModificar():
     form = ModificarForm()
