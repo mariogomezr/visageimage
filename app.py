@@ -7,6 +7,7 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from werkzeug.utils import secure_filename
 from db import get_db, close_db
 import numpy as np
+import posixpath
 
 #Configuracion
 
@@ -79,6 +80,7 @@ def index():
         titulo = lista[valor[0],1]
         for i in range(len(valor)):
             string = string + "#" + str(lista[valor[i],0]) + ' '
+        url.replace(os.sep, ntpath.sep)
         listaf.append([url,titulo,string])
     print(listaf)
 
@@ -218,8 +220,7 @@ def vistaModificar():
         if form.validate_on_submit():
             titulo = form.titulo.data
             url = form.url.data
-            #url = url.replace('http://127.0.0.1:5000/','').replace('/','\\')
-            url = url.replace('https://54.91.130.114/','').replace('\\','/')
+            url = url.replace('http://127.0.0.1:5000/','').replace('/','\\')
             db = get_db()
             id = db.execute("select pk_id_img from imagenes where url=?",((url),)).fetchone()
             ide = id[0]
