@@ -2,7 +2,7 @@ from forms import CambiaPassForm, LoginForm, OlvidaPassForm, RegistroForm, subir
 from flask import Flask, render_template, flash, request, redirect, url_for, jsonify, session, send_file, current_app, g
 from flask_mail import Mail, Message
 from flask_wtf import form
-import logging, email, sys, os
+import logging, email, sys, os, ntpath
 from werkzeug.security import generate_password_hash, check_password_hash
 from werkzeug.utils import secure_filename
 from db import get_db, close_db
@@ -245,6 +245,7 @@ def vistaModificar():
                         db.execute('UPDATE imagenes SET url = ? , titulo = ? WHERE pk_id_img = ?',(ruta,titulo,ide) )
                         db.commit()
                         return redirect(url_for('perfil'))
+
             if request.form['btn_actualizar'] == 'Eliminar':      #si se presiona el boton de eliminar
                 print('paso1')
                 db.execute('delete from tag_img where fk_id_img = ?',((int(ide)),))
