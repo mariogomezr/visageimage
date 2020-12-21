@@ -30,36 +30,12 @@
 </section>
 
 <section>
-    <!---<div class="contenedor-imagenes">
+    <div class="contenedor-imagenes">
         <a href="verImagen" target = "_self">
-            <img src="{{ lista[0][0] }}" title="{{ lista[0][1] }}" onclick="guardar_src2(this.src); guardar_nombre2(this.title);">
+            {% for listaf in listaf %}
+            <img src="{{ listaf[0] }}" title="{{ listaf[1] }}" alt="{{ listaf[2] }}" onclick="guardar_src(this.src); guardar_nombre(this.title); guardar_etiqueta(this.alt);">
+            {% endfor %}
         </a>			  
-    </div>--->
-     <div class="row">
-        <div class="column">
-            <a href="verImagen" target="_self">
-                {% for i in range(0,3) %}
-                <img src="{{ lista[i][0] }}" title="{{ lista[i][1] }}"
-                    onclick="guardar_src(this.src); guardar_nombre(this.title);">
-                {% endfor %}
-            </a>
-        </div>
-        <div class="column">
-            <a href="verImagen" target="_self">
-                {% for i in range(3,6) %}
-                <img src="{{ lista[i][0] }}" title="{{ lista[i][1] }}"
-                    onclick="guardar_src(this.src); guardar_nombre(this.title);">
-                {% endfor %}
-            </a>
-        </div>
-        <div class="column">
-            <a href="verImagen">
-                {% for i in range(6,9) %}
-                <img src="{{ lista[i][0] }}" title="{{ lista[i][1] }}"
-                    onclick="guardar_src(this.src); guardar_nombre(this.title);">
-                {% endfor %}
-            </a>
-        </div>
     </div>
 </section>
 {% endblock %}

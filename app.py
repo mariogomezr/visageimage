@@ -6,6 +6,7 @@ import logging, email, sys, os
 from werkzeug.security import generate_password_hash, check_password_hash
 from werkzeug.utils import secure_filename
 from db import get_db, close_db
+import numpy as np
 
 #Configuracion
 
@@ -67,10 +68,21 @@ def index():
     db = get_db()
     lista = []
 
-    for img in db.execute( 'SELECT url, titulo FROM imagenes LIMIT 9' ):
-        lista.append([img[0],img[1]])
+    for img in db.execute( 'select tag, titulo, url from tag t join tag_img timg on t.id_tag = timg.fk_id_tag join imagenes img on img.pk_id_img = timg.fk_id_img ORDER BY pk_id_img desc ' ):
+        lista.append([img[0],img[1],img[2]])
+    lista = np.array(lista)
+    urls = set(lista[:,2])
+    listaf = []
+    for url in urls:
+        valor = np.where(lista[:,2]==url)[0]
+        string = ''
+        titulo = lista[valor[0],1]
+        for i in range(len(valor)):
+            string = string + "#" + str(lista[valor[i],0]) + ' '
+        listaf.append([url,titulo,string])
+    print(listaf)
 
-    return render_template('index.html', lista=lista)
+    return render_template('index.html', listaf=listaf)
 
 
 @app.route('/login/', methods=['GET', 'POST'])
@@ -203,17 +215,48 @@ def nosotros():
 def vistaModificar():
     form = ModificarForm()
     if request.method == 'POST':
-        if form.validate():
+        if form.validate_on_submit():
             titulo = form.titulo.data
-            etiquetas = form.etiquetas.data
-            file = request.files['file']
-            if request.form['btn_actualizar'] == 'Actualizar':  #Si se unde el boton de actualizar
-                pass 
-            if request.form['btn_Eliminar'] == 'Eliminar':      #si se unde el boton de eliminar
-                pass
-        
+            url = form.url.data
+            url = url.replace('http://127.0.0.1:5000/','').replace('/','\\')
+            db = get_db()
+            id = db.execute("select pk_id_img from imagenes where url=?",((url),)).fetchone()
+            ide = id[0]
+            print('el id es:',ide)
+            if request.form['btn_actualizar'] == 'Actualizar':  #Si se presiona el boton de actualizar
+                archivo = request.files['file']
+                if archivo is None or archivo.filename == '':
+                    db.execute('UPDATE imagenes SET url = ? , titulo = ? WHERE pk_id_img = ?',(url,titulo,ide) )
+                    db.commit()
+                    return redirect(url_for('perfil'))
 
-
+                if archivo and allowed_file(archivo.filename):   #Si existe el archivo y tiene extension permitida
+                    archivo_seguro = secure_filename(archivo.filename)
+                    path_archivo = os.path.join(app.config['UPLOAD_FOLDER'], archivo_seguro)
+                    
+                    #Si la imagen ya existe en la BD
+                    if db.execute( 'SELECT url FROM imagenes WHERE url = ?', (path_archivo,) ).fetchone() is not None:
+                        error = 'La imagen ya existe en la base de datos, pruebe con un nombre diferente'
+                        flash( error )
+                        return redirect(url_for('perfil'))
+                    else:
+                        ruta = os.path.join(app.config['UPLOAD_FOLDER'],archivo.filename)
+                        archivo.save(os.path.join(app.config['UPLOAD_FOLDER'],archivo.filename))   #Se graba en la carpeta
+                        db.execute('UPDATE imagenes SET url = ? , titulo = ? WHERE pk_id_img = ?',(ruta,titulo,ide) )
+                        db.commit()
+                        return redirect(url_for('perfil'))
+            if request.form['btn_actualizar'] == 'Eliminar':      #si se presiona el boton de eliminar
+                print('paso1')
+                db.execute('delete from tag_img where fk_id_img = ?',((int(ide)),))
+                print('paso2')
+                db.commit()
+                print('paso3')
+                db.execute('delete from imagenes where pk_id_img = ?',((int(ide)),))
+                print('paso4')
+                db.commit()
+                print('paso5')
+                return redirect(url_for('perfil'))
+            
     return render_template('vistaModificar.html', form = form)
 
 
@@ -225,12 +268,21 @@ def perfil():
     nombreUsuario = g.user[1]
     lista = []
 
-    for img in db.execute( 'SELECT url, titulo FROM imagenes WHERE autor = ? ', (str(nombreUsuario),) ):
-        lista.append([img[0],img[1]])
-    
-    #print(lista)
+    for img in db.execute( 'select tag, titulo, url from tag t join tag_img timg on t.id_tag = timg.fk_id_tag join imagenes img on img.pk_id_img = timg.fk_id_img where autor = ?', (str(nombreUsuario),) ):
+        lista.append([img[0],img[1],img[2]])
+    lista = np.array(lista)
+    urls = set(lista[:,2])
+    listaf = []
+    for url in urls:
+        valor = np.where(lista[:,2]==url)[0]
+        string = ''
+        titulo = lista[valor[0],1]
+        for i in range(len(valor)):
+            string = string + str(lista[valor[i],0]) + ' '
+        listaf.append([url,titulo,string])
+    print(listaf)
 
-    return render_template('perfil.html', lista=lista, nombreUsuario=nombreUsuario)
+    return render_template('perfil.html', listaf=listaf, nombreUsuario=nombreUsuario)
 
 
 @login_required
@@ -289,7 +341,8 @@ def download_image(file_url):
 
 @app.route('/verImagen', methods=['GET'])
 def verImagen():
-    return render_template('verImagen.html')
+    nombreUsuario = g.user[1]
+    return render_template('verImagen.html', nombreUsuario=nombreUsuario)
 
 
 @app.route('/terminos', methods=['GET'])
