@@ -8,6 +8,7 @@
 <title>VisageImage</title>
 <link rel="stylesheet" href="/static/css/normalize.css">
 <link rel="stylesheet" href="{{ url_for('static', filename = 'css/style.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename = 'css/estilosPerfil.css') }}" >
 <script src="https://kit.fontawesome.com/16e7301bc6.js" crossorigin="anonymous"></script>
 <script type="text/javascript" src="../static/js/llamarimagen.js"></script>
 {% endblock %}
@@ -29,12 +30,12 @@
 </section>
 
 <section>
-    <!--- <div class="contenedor-imagenes">
-                <a href="verImagen" target = "_self">
-                    <img src="{{ lista[0][0] }}" title="{{ lista[0][1] }}" onclick="guardar_src2(this.src); guardar_nombre2(this.title);">
-                </a>			  
-            </div>--->
-    <div class="row">
+    <!---<div class="contenedor-imagenes">
+        <a href="verImagen" target = "_self">
+            <img src="{{ lista[0][0] }}" title="{{ lista[0][1] }}" onclick="guardar_src2(this.src); guardar_nombre2(this.title);">
+        </a>			  
+    </div>--->
+     <div class="row">
         <div class="column">
             <a href="verImagen" target="_self">
                 {% for i in range(0,3) %}
