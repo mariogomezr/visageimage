@@ -21,9 +21,12 @@
             
             <img class="contimg" src="/static/img/visageimage.png" alt="Logo VisageImage">
             
-            <form class="formSearch">
-                <button class="boton-buscar"><i class="fas fa-search" onclick="" aria-hidden="true"></i></button>
-                <input class="form-control" id="buscar" type="text" placeholder="Search" size="50" aria-label="Search">
+            <form class="formSearch" method="POST" novalidate action="">
+                {{ form.tag(size =64)}}
+                {% for error in form.tag.errors %}
+                <span style="color: red;">{{ error }}</span>
+                {% endfor %}
+                <button class="boton-buscar" type="submit" value="buscar" ><i class="fas fa-search" aria-hidden="true"></i></button>
             </form>
         </div>
     </div>

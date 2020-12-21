@@ -45,3 +45,7 @@ class subirimagenForm(FlaskForm):
     privacidad = RadioField('privacidad',choices=[('privado','Privado'),('publico','Público')])
     file = FileField('file' )
     submit = SubmitField('Guardar')
+
+class indexForm(FlaskForm):
+    tag = StringField('tag',validators=[DataRequired()])
+    submit = SubmitField('buscar')
