@@ -10,8 +10,9 @@ class LoginForm (FlaskForm):
     submit = SubmitField('Iniciar sesión')
 
 class ModificarForm (FlaskForm):
-    titulo = StringField('', validators=[DataRequired(), Length(max=64)])
-    etiquetas = StringField('', validators=[DataRequired(), ])
+    titulo = StringField('nombrePrincipal2')
+    etiquetas = StringField('input_etiqueta')
+    url = StringField('url1')
     file = FileField('file')
     submit_actualizar = SubmitField('Actualizar')
     submit_eliminar = SubmitField('Eliminar')

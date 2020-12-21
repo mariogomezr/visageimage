@@ -18,7 +18,7 @@
 {% block content %}
 
 <body class="principal" onload="load2();">
-    <form class=form action="" method="POST">
+    <form class=form action="/modificar_imagen" method="POST" novalidate enctype="multipart/form-data">
         <div class="input_elements">
             {{ form.hidden_tag() }}
             <h2 class="input" id="titulo">Modifica o Elimina tu imagen</h1>
@@ -38,8 +38,9 @@
                 <input type="file" name="file" id="file">
 
                 <img class="img" id="imagenPrincipal2" src="../static/img/dumbo-4582501_640.jpg" alt="">
+                {{ form.url(class = "input", id= "url1", placeholder = "") }}
                 <input type="submit" class="buton" name = "btn_actualizar" id="btn_actualizar" value="Actualizar">
-                <input type="submit" class="buton" name="btn_Eliminar" id="btn_Eliminar" value="Eliminar">
+                <input type="submit" class="buton" name="btn_actualizar" id="btn_Eliminar" value="Eliminar">
         </div>
     </form>
 </body>
