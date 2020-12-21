@@ -3,9 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Nosotros | VisageImage</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename = 'css/estilonosotros.css') }}" >
 </head>
 <body>
-    <a href="{{ url_for('index') }}">Home</a>
+    <div class='encabezado'>
+        
+        <div class='contenido'>
+            <img src="../static/img/visageimage-cortada.jpg" alt="top">
+
+            <a href="{{ url_for('index') }}">Home</a>
+        </div>
+    </div>
+    <div class='cuerpo'>
+        <img src="../static/img/camila.jpeg" alt="integrantes">
+        <img src="../static/img/mario.jpeg" alt="integrantes">
+        <img src="../static/img/nicolas.jpeg" alt="integrantes">
+        <img src="../static/img/benji.jpeg" alt="integrantes">
+        <div class='parrafo'>
+            
+                Somos un grupo de estudiantes de programación de misiontic 2022 y universidad del norte, creamos este proyecto como sustentación del ciclo de desarrollo empleando los conocimientos aprendidos en clase 
+        
+        </div>
+    </div>
+
 </body>
 </html>
